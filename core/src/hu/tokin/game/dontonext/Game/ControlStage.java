@@ -43,7 +43,7 @@ public class ControlStage extends MyStage {
         addActor(new BlockSelector());
 
         addActor(new PlaceableActor(PlaceableActor.Type.PLANK, this));
-        addActor(new PlaceableActor(PlaceableActor.Type.FAN, this));
+        addActor(new PlaceableActor(PlaceableActor.Type.AIR, this));
 
         addActor(new MyTextButton("Start", game.getTextButtonStyle()){
             @Override
@@ -108,9 +108,9 @@ public class ControlStage extends MyStage {
     }
 
     public void removeAllRotate(){
-        for (Actor actor:getActors()) {
+        /*for (Actor actor: getActors()) {
             if(actor instanceof RotateButton) actor.remove();
-        }
+        }*/
     }
 
     @Override
