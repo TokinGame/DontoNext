@@ -55,27 +55,10 @@ public class GameStage extends MyStage {
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
         //controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT, new OrthographicCamera(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT)),new SpriteBatch(), game, this);
-        rem = new ArrayList<WorldActorGroup>();
 
-        InputMultiplexer inputMultiplexer = new InputMultiplexer();
-        inputMultiplexer.addProcessor(this);
-        //inputMultiplexer.addProcessor(controlStage);
-        Gdx.input.setInputProcessor(inputMultiplexer);
-
-        addActor(new Plank(world, 100, 100, 0));
-        addActor(new PoolBall(world, 200, 200));
-
-    }
-
-
-    @Override
-    public void init() {
-        world = new World(new Vector2(0, -2.5f), false);
+        world = new World(new Vector2(0, -20.5f), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
         loader = new WorldBodyEditorLoader(Gdx.files.internal("fizika.json"));
-
-
-
         world.setContactListener(new ContactListener() {
             @Override
             public void beginContact(Contact contact) {
@@ -98,6 +81,20 @@ public class GameStage extends MyStage {
             }
         });
 
+        rem = new ArrayList<WorldActorGroup>();
+
+        InputMultiplexer inputMultiplexer = new InputMultiplexer();
+        inputMultiplexer.addProcessor(this);
+        //inputMultiplexer.addProcessor(controlStage);
+        Gdx.input.setInputProcessor(inputMultiplexer);
+
+        addActor(new Plank(world, 100, 100, 0));
+        addActor(new PoolBall(world, 200, 200));
+    }
+
+
+    @Override
+    public void init() {
     }
 
     @Override

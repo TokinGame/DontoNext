@@ -14,15 +14,16 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
 
 public class PoolBall extends WorldActorGroup {
     public PoolBall(World world, final float x, final float y) {
-        super(world, ShapeType.Circle, BodyDef.BodyType.KinematicBody, 0, 0.2f, 5, false);
+        super(world, ShapeType.Circle, BodyDef.BodyType.DynamicBody, 0.1f, 0.2f, 25, false);
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BADLOGIC_TEXTURE)){
             @Override
             public void init() {
                 super.init();
-                setSize(50/80f, 50/80f);
+                setSize(50, 50);
             }
         });
-        setPosition(x/80f, y/80f);
-        setSize(50/80f, 50/80f);
+        setPosition(x, y);
+        setSize(50, 50);
+        addToWorld();
     }
 }
