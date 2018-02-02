@@ -18,6 +18,7 @@ import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
 
 import hu.tokin.game.dontonext.HowToPlay.HowToPlayScreen;
+import hu.tokin.game.dontonext.LevelSelect.LevelSelectScreen;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
@@ -114,7 +115,7 @@ public class MenuStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        game.setScreen(new GameScreen(game));
+                        game.setScreen(new LevelSelectScreen(game));
                     }
                 });
 
