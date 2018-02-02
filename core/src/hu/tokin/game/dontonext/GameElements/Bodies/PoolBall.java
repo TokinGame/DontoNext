@@ -18,14 +18,16 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
 
 public class PoolBall extends WorldActorGroup {
 
+    OneSpriteAnimatedActor actor;
+
     public PoolBall(World world, WorldBodyEditorLoader loader, final float x, final float y) {
         super(world, loader, "golyo", BodyDef.BodyType.DynamicBody, 0.1f, 0.2f, 25, false);
-        addActor(new OneSpriteAnimatedActor("GameTextures/golyo/golyo.txt"){
+        addActor(actor = new OneSpriteAnimatedActor("GameTextures/golyo/golyo.txt"){
             @Override
             public void init() {
                 super.init();
                 setSize((float)40/80, (float)40/80);
-                setFps(20);
+                stop();
             }
         });
 
@@ -37,6 +39,13 @@ public class PoolBall extends WorldActorGroup {
     @Override
     public void act(float delta) {
         super.act(delta);
+        if(getBody().getLinearVelocity().y > 0.1f){
+            actor.FrameMinus();
+            System.out.println("fel");
+        }else if(getBody().getLinearVelocity().y < -0.1f){
+            actor.FramePlus();
+            System.out.println("le");
+        }
     }
 
     @Override

@@ -62,7 +62,7 @@ public class GameStage extends MyStage {
         super(viewport, batch, game);
         controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT, new OrthographicCamera(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT)),new SpriteBatch(), game, this);
         setDebugAll(Globals.DEBUG);
-        world = new World(new Vector2(0, -20.5f), false);
+        world = new World(new Vector2(0, -10f), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
         loader = new WorldBodyEditorLoader(Gdx.files.internal("fizika.json"));
         world.setContactListener(new ContactListener() {

@@ -27,8 +27,9 @@ public class Globals {
 
     public static final Preferences prefs = Gdx.app.getPreferences("main");
 
-    public static boolean soundFX = true, music = prefs.getBoolean("music",true);
-
+    public static boolean soundFX = true;
+    //public static boolean music = prefs.getBoolean("music",true);
+    public static boolean music = false;
 
     public static Preferences getPrefs(){
         return prefs;
