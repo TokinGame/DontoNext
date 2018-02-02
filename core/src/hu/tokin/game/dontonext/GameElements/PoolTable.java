@@ -11,5 +11,8 @@ public class PoolTable extends OneSpriteStaticActor {
 
     public PoolTable() {
         super(Assets.manager.get(Assets.BADLOGIC_TEXTURE));
+        this.setPosition(0,0);
+        this.setSize(1280,720);
     }
+    
 }
