@@ -29,7 +29,7 @@ public class Globals {
 
     public static boolean soundFX = true;
     //public static boolean music = prefs.getBoolean("music",true);
-    public static boolean music = false;
+    public static boolean music = true;
 
     public static Preferences getPrefs(){
         return prefs;

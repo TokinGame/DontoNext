@@ -46,7 +46,14 @@ public class CreditsStage2 extends MyStage {
                 setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
             }
         });
-
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.ZIEHL)){
+            @Override
+            public void init() {
+                super.init();
+                setSize(200, 100);
+                setPosition((Globals.WORLD_WIDTH/2-this.getWidth()/2), 10);
+            }
+        });
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.TOKIN)){
             @Override
             public void init() {

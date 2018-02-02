@@ -49,6 +49,7 @@ public class Assets {
     public static final AssetDescriptor<Texture> MENU_BG = new AssetDescriptor<Texture>("GameTextures/menu_bg.png", Texture.class);
     public static final AssetDescriptor<Texture> GAMEOVER = new AssetDescriptor<Texture>("GameTextures/gameover.png", Texture.class);
     public static final AssetDescriptor<Texture> EXIT = new AssetDescriptor<Texture>("GameTextures/exit.png", Texture.class);
+    public static final AssetDescriptor<Texture> ZIEHL = new AssetDescriptor<Texture>("OtherTextures/ziehl.png", Texture.class);
 
     public static final AssetDescriptor<Texture> TRAY = new AssetDescriptor<Texture>("GameTextures/talca.png", Texture.class);
     public static final AssetDescriptor<Texture> BUTTON = new AssetDescriptor<Texture>("GameTextures/gomb.png", Texture.class);
@@ -83,7 +84,7 @@ public class Assets {
         manager.load(EMPTY);
         manager.load(GAMEOVER);
         manager.load(EXIT);
-
+        manager.load(ZIEHL);
         manager.load(BACKGROUND_TABLE);
         manager.load(MAIN_MUSIC);
         manager.load(PEN);
