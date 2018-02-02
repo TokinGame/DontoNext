@@ -24,6 +24,9 @@ public class Globals {
 
     public static Selectable selectedBlock = Selectable.CUE;
 
+    public static int level = 0;
+    public static boolean[] unlocked = {true, false, false, false, false, false};
+
 
     public static final Preferences prefs = Gdx.app.getPreferences("main");
 

@@ -17,6 +17,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.AddAction;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -37,7 +39,9 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
+import hu.tokin.game.dontonext.MyBaseClasses.UI.MyLabel;
 import hu.tokin.game.dontonext.MyGdxGame;
+import hu.tokin.game.dontonext.Win.WinScreen;
 
 /**
  * Created by M on 1/11/2018.
@@ -149,24 +153,47 @@ public class GameStage extends MyStage {
 
 
         addActor(new Plank(world, loader, 10, 150, 0));
-        addActor(poolBall = new PoolBall(world, loader, 800, 500));
 
         addActor(new Air(world, 700, 200, 45));
 
         addBackEventStackListener();
 
 
-        addHoles(2);
+        if(Globals.level < 6) addHoles(Globals.level);
+        else{
+            game.setScreen(new WinScreen(game));
+        }
+
+        addActor(new MyLabel(Globals.level+". szint", game.getLabelStyle_White_DarkBG()){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 500);
+                addAction(Actions.sequence(Actions.alpha(1), Actions.delay(2f), Actions.fadeOut(0.5f)));
+            }
+        });
+
+        switch(Globals.level){
+            case 0: addActor(poolBall = new PoolBall(world, loader, 800, 500)); break;
+            case 1: addActor(poolBall = new PoolBall(world, loader, 100, 500)); break;
+            case 2: addActor(poolBall = new PoolBall(world, loader, 1100, 600)); break;
+            case 3: addActor(poolBall = new PoolBall(world, loader, 300, 300)); break;
+            case 4: addActor(poolBall = new PoolBall(world, loader, 800, 500)); break;
+            case 5: addActor(poolBall = new PoolBall(world, loader, 1000, 100)); break;
+
+        }
+
+
     }
 
 
     public void addHoles(int which){
-        addActor(new Hole(world, loader, 70, 70, which==0 ? true : false));
-        addActor(new Hole(world, loader, 640, 50, which==1 ? true : false));
-        addActor(new Hole(world, loader, 1280-70, 70, which==2 ? true : false));
-        addActor(new Hole(world, loader, 1280-70, 720-70, which==3 ? true : false));
-        addActor(new Hole(world, loader, 640, 720-50, which==4 ? true : false));
-        addActor(new Hole(world, loader, 70, 720-70, which==5 ? true : false));
+        addActor(new Hole(game, world, loader, 70, 70, which==0 ? true : false));
+        addActor(new Hole(game, world, loader, 640, 50, which==1 ? true : false));
+        addActor(new Hole(game, world, loader, 1280-70, 70, which==2 ? true : false));
+        addActor(new Hole(game, world, loader, 1280-70, 720-70, which==3 ? true : false));
+        addActor(new Hole(game, world, loader, 640, 720-50, which==4 ? true : false));
+        addActor(new Hole(game, world, loader, 70, 720-70, which==5 ? true : false));
     }
 
 

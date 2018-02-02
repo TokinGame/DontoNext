@@ -60,6 +60,12 @@ public class Assets {
     public static final AssetDescriptor<Texture> CIRCLE = new AssetDescriptor<Texture>("GameTextures/kor.png", Texture.class);
     public static final AssetDescriptor<Texture> ARROW = new AssetDescriptor<Texture>("GameTextures/nyil.png", Texture.class);
 
+    public static final AssetDescriptor<Texture> L1 = new AssetDescriptor<Texture>("GameTextures/Levels/1.png", Texture.class);
+    public static final AssetDescriptor<Texture> L2 = new AssetDescriptor<Texture>("GameTextures/Levels/2.png", Texture.class);
+    public static final AssetDescriptor<Texture> L3 = new AssetDescriptor<Texture>("GameTextures/Levels/3.png", Texture.class);
+    public static final AssetDescriptor<Texture> L4 = new AssetDescriptor<Texture>("GameTextures/Levels/4.png", Texture.class);
+    public static final AssetDescriptor<Texture> L5 = new AssetDescriptor<Texture>("GameTextures/Levels/5.png", Texture.class);
+    public static final AssetDescriptor<Texture> L6 = new AssetDescriptor<Texture>("GameTextures/Levels/6.png", Texture.class);
 
 
 
@@ -100,6 +106,14 @@ public class Assets {
         manager.load(CIRCLE);
         manager.load(SPIN);
         manager.load(ARROW);
+
+        manager.load(L1);
+        manager.load(L2);
+        manager.load(L3);
+        manager.load(L4);
+        manager.load(L5);
+        manager.load(L6);
+
 
         manager.load(MAIN_MUSIC);
 

@@ -61,7 +61,7 @@ public class LevelSelectStage extends MyStage{
         });
 
 
-        addActor(new MyTextButton("1",game.getTextButtonStyle()){
+        /*addActor(new MyTextButton("1",game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
@@ -74,7 +74,109 @@ public class LevelSelectStage extends MyStage{
                     }
                 });
             }
+        });*/
+
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.L1)){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(200, 400);
+                setSize(100, 100);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        Globals.level = 0;
+                        game.setScreen(new GameScreen(game));
+                    }
+                });
+            }
         });
+        if(Globals.unlocked[1])
+            addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.L2)){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(400, 400);
+                setSize(100, 100);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        Globals.level = 1;
+                        game.setScreen(new GameScreen(game));
+                    }
+                });
+            }
+        });
+        if(Globals.unlocked[2])
+            addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.L3)){
+                @Override
+                public void init() {
+                    super.init();
+                    setPosition(600, 400);
+                    setSize(100, 100);
+                    addListener(new ClickListener(){
+                        @Override
+                        public void clicked(InputEvent event, float x, float y) {
+                            super.clicked(event, x, y);
+                            Globals.level = 2;
+                            game.setScreen(new GameScreen(game));
+                        }
+                    });
+                }
+            });
+        if(Globals.unlocked[3])
+            addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.L4)){
+                @Override
+                public void init() {
+                    super.init();
+                    setPosition(200, 200);
+                    setSize(100, 100);
+                    addListener(new ClickListener(){
+                        @Override
+                        public void clicked(InputEvent event, float x, float y) {
+                            super.clicked(event, x, y);
+                            Globals.level = 3;
+                            game.setScreen(new GameScreen(game));
+                        }
+                    });
+                }
+            });
+        if(Globals.unlocked[4])
+            addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.L5)){
+                @Override
+                public void init() {
+                    super.init();
+                    setPosition(400, 200);
+                    setSize(100, 100);
+                    addListener(new ClickListener(){
+                        @Override
+                        public void clicked(InputEvent event, float x, float y) {
+                            super.clicked(event, x, y);
+                            Globals.level = 4;
+                            game.setScreen(new GameScreen(game));
+                        }
+                    });
+                }
+            });
+        if(Globals.unlocked[5])
+            addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.L6)){
+                @Override
+                public void init() {
+                    super.init();
+                    setPosition(600, 200);
+                    setSize(100, 100);
+                    addListener(new ClickListener(){
+                        @Override
+                        public void clicked(InputEvent event, float x, float y) {
+                            super.clicked(event, x, y);
+                            Globals.level = 5;
+                            game.setScreen(new GameScreen(game));
+                        }
+                    });
+                }
+            });
 
 
 
