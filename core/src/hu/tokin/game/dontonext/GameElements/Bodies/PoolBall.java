@@ -45,10 +45,10 @@ public class PoolBall extends WorldActorGroup {
         if(another instanceof Air){
             float airRotation = another.getRotation();
             System.out.println("huehuehuehue rootttttoot "+ airRotation);
-            Vector2 vector2 = new Vector2(600, 0);
+            Vector2 vector2 = new Vector2(1000, 0);
             Vector2 rotateVector2 = vector2.setAngleRad(airRotation);
-            this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x, this.getBody().getLinearVelocity().y);
             this.getBody().applyForceToCenter(rotateVector2, false);
+            this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x, this.getBody().getLinearVelocity().y);
         }
     }
 }

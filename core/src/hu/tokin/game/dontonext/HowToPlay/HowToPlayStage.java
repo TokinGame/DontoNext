@@ -47,29 +47,15 @@ public class HowToPlayStage extends MyStage {
             }
         });
 
-        addActor(new MyLabel("A helyi kocsmában lévő billárd asztalt egy balhé közben szétverték a dákóval, nekiállt lejteni, és egy-két oldala hiányzik.\\nÁm a kocsma népét ez sem akadályozza meg kedvenc sportjuk űzésében.\\nA raktárban talált ventillátorok segítségével akarják belöködni a golyókat, mivel a dákót is eltörték.\\n Ám mivel ők elég illuminált állapotban vannak, eme feladat rádhárult.\\nSegíts eljuttatni a golyót a pirossal jelölt lyukba, ventillátorok és törött dákók segítségével.", game.getLabelStyle_White_DarkBG()){
+        addActor(new MyLabel("A helyi kocsmában lévő billárd asztalt\negy balhé közben szétverték a dákóval,\nelkezdett lejteni, és egy-két oldala hiányzik.\nÁm a kocsma népét ez sem akadályozza meg\nkedvenc sportjuk űzésében.\nA raktárban talált ventillátorok segítségével akarják belöködni\na golyókat, mivel a dákót is eltörték.\nDe ők túl illuminált állapotban vannak,\nezért eme feladat rád hárult.\nSegíts eljuttatni a golyót a pirossal jelölt lyukba,\nventillátorok és törött dákók segítségével.", game.getLabelStyle_White_DarkBG()){
             public void init() {
                 super.init();
-                setPosition(Globals.WORLD_WIDTH/2-getWidth()/2, 200);
+                setPosition(Globals.WORLD_WIDTH/2-getWidth()/2,50 );
                 setAlignment(2);
 
             }
         });
 
-        addActor(new MyTextButton("Intro",game.getTextButtonStyle()){
-            @Override
-            public void init() {
-                super.init();
-                setPosition((Globals.WORLD_WIDTH-getWidth())-10, 10);
-                addListener(new ClickListener(){
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        //game.setScreen(new FirstStartScreen(game));
-                    }
-                });
-            }
-        });
 
         addActor(new MyTextButton("Vissza",game.getTextButtonStyle()){
             @Override

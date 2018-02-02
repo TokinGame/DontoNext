@@ -12,6 +12,7 @@ import hu.tokin.game.dontonext.Globals.Globals;
 import hu.tokin.game.dontonext.Menu.MenuScreen;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.tokin.game.dontonext.MyBaseClasses.UI.MyLabel;
 import hu.tokin.game.dontonext.MyBaseClasses.UI.MyTextButton;
 import hu.tokin.game.dontonext.MyGdxGame;
 
@@ -41,7 +42,7 @@ public class ExitStage extends MyStage {
         });
 
 
-        addActor(new MyTextButton("Biztosan ki akarsz lépni?", game.getTextButtonStyle()) {
+        addActor(new MyLabel("Biztosan ki akarsz lépni?", game.getLabelStyle_Green()) {
             @Override
             public void init() {
                 super.init();

@@ -55,8 +55,10 @@ public class Assets {
 
     public static final AssetDescriptor<Texture> FAN_STATIONARY = new AssetDescriptor<Texture>("OtherTextures/1.png", Texture.class);
 
-    public static final AssetDescriptor<Texture> SPIN = new AssetDescriptor<Texture>("GameTextures/nyil.png", Texture.class);
+    public static final AssetDescriptor<Texture> SPIN = new AssetDescriptor<Texture>("GameTextures/spin.png", Texture.class);
     public static final AssetDescriptor<Texture> CIRCLE = new AssetDescriptor<Texture>("GameTextures/kor.png", Texture.class);
+    public static final AssetDescriptor<Texture> ARROW = new AssetDescriptor<Texture>("GameTextures/nyil.png", Texture.class);
+
 
 
 
@@ -96,6 +98,7 @@ public class Assets {
         manager.load(FAN_STATIONARY);
         manager.load(CIRCLE);
         manager.load(SPIN);
+        manager.load(ARROW);
 
         manager.load(MAIN_MUSIC);
 

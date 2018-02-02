@@ -42,12 +42,12 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(nyil = new OneSpriteStaticActor(Assets.manager.get(Assets.CUE_1)){
+        addActor(nyil = new OneSpriteStaticActor(Assets.manager.get(Assets.ARROW)){
             @Override
             public void init() {
                 super.init();
                 this.setSize(100, 60);
-                setPosition(75, 295);
+                setPosition(40, 295);
             }
         });
 
@@ -164,11 +164,11 @@ public class BlockSelector extends Group {
         switch(id){
             case 0:
                 Globals.selectedBlock = Globals.Selectable.CUE;
-                nyil.setPosition(75, 295);
+                nyil.setPosition(40, 295);
                 break;
             case 1:
                 Globals.selectedBlock = Globals.Selectable.FAN;
-                nyil.setPosition(75, 170);
+                nyil.setPosition(40, 170);
                 break;
             case 2:
                 //Globals.selectedBlock = Globals.Selectable.OTHERTURRET;
