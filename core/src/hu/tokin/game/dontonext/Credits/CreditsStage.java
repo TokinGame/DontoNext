@@ -72,7 +72,7 @@ public class CreditsStage extends MyStage {
             }
         });
 
-        addActor(new MyLabel("ASDF\nKészítette a Tökin Game\nTagok:\nBálint Dániel\nDávid Mátyás\nKovács Zoltán\nSchuh Marcell", game.getLabelStyle_White()){
+        addActor(new MyLabel("WindPool\nKészítette a Tökin Game\nTagok:\nBálint Dániel\nDávid Mátyás\nKovács Zoltán\nSchuh Marcell", game.getLabelStyle_White()){
             @Override
             public void init() {
                 super.init();
