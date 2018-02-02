@@ -39,6 +39,13 @@ public class SettingsStage extends MyStage {
             }
         });*/
 
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.MENU_BG)){
+            @Override
+            public void init() {
+                super.init();
+                setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+            }
+        });
 
         addActor(Zene=new OneSpriteStaticActor(Assets.manager.get(Assets.MUSIC_ON)){
             @Override

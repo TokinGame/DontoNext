@@ -39,6 +39,14 @@ public class HowToPlayStage extends MyStage {
         });
         */
 
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.MENU_BG)){
+            @Override
+            public void init() {
+                super.init();
+                setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+            }
+        });
+
         addActor(new MyLabel("Játék menete:\nA játék során az ellenség hullámokban fog érkezni,\nhogy elpusztítsák a bázist.\nA feledat ezt megakadályozni falak és ágyúk segítségével\n Az eszköztárban lehet választani, fal és ágyú között,\nmelyeket Űrforintért lehet vásárolni, és lehelyezni a pályára\n Sok Sikert!", game.getLabelStyle_White_DarkBG()){
             @Override
             public void init() {
