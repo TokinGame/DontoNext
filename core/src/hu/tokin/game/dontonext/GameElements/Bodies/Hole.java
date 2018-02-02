@@ -19,6 +19,7 @@ import hu.tokin.game.dontonext.MyGdxGame;
 
 public class Hole extends WorldActorGroup {
     boolean isFinish;
+    boolean marVolt = false;
     MyGdxGame game;
     public Hole(MyGdxGame game, World world, WorldBodyEditorLoader loader, float x, float y, boolean finish) {
         super(world, loader, "golyo", BodyDef.BodyType.StaticBody, 0, 0, 0, true);
@@ -43,14 +44,20 @@ public class Hole extends WorldActorGroup {
         super.contact(another);
         if(another instanceof PoolBall){
             if(isFinish) {
-                System.out.println("Good hole");
-                Globals.level++;
-                Globals.unlocked[Globals.level] = true;
-                game.setScreen(new GameScreen(game));
+                if(!marVolt){
+                    System.out.println("Good hole");
+                    Globals.level++;
+                    Globals.unlocked[Globals.level] = true;
+                    game.setScreen(new GameScreen(game));
+                    marVolt = true;
+                }
             }
             else {
                 System.out.println("Bad hole");
-                game.setScreen(new GameOverScreen(game));
+                if(!marVolt){
+                    game.setScreen(new GameOverScreen(game));
+                    marVolt = true;
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 package hu.tokin.game.dontonext.GameOver;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 import hu.tokin.game.dontonext.Globals.Globals;
@@ -17,6 +18,7 @@ public class GameOverScreen extends MyScreen {
         super(game);
         gameOverStage = new GameOverStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), spriteBatch, game);
         gameOverStage.addBackEventStackListener();
+        Gdx.input.setInputProcessor(gameOverStage);
 
     }
 
