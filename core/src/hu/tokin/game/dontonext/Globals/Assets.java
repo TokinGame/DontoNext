@@ -64,6 +64,7 @@ public class Assets {
         manager.load(MUSIC_OFF);
         manager.load(MUSIC_ON);
 
+        manager.load(MAIN_MUSIC);
     }
 
     public static void afterLoaded() {
