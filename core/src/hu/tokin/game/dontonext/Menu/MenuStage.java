@@ -44,7 +44,7 @@ public class MenuStage extends MyStage {
         Gdx.input.setInputProcessor(this);
         Gdx.input.setCatchBackKey(true);
         for(StackTraceElement s: Thread.currentThread().getStackTrace()){
-            System.out.println(s);
+            //System.out.println(s);
         }
 
 

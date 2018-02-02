@@ -21,6 +21,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
+import hu.tokin.game.dontonext.GameElements.Bodies.Plank;
+import hu.tokin.game.dontonext.GameElements.Bodies.PoolBall;
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
@@ -56,6 +58,9 @@ public class GameStage extends MyStage {
         inputMultiplexer.addProcessor(this);
         //inputMultiplexer.addProcessor(controlStage);
         Gdx.input.setInputProcessor(inputMultiplexer);
+
+        addActor(new Plank(world, 100, 100, 0));
+        addActor(new PoolBall(world, 200, 200));
 
     }
 
@@ -119,7 +124,7 @@ public class GameStage extends MyStage {
         super.act(delta);
         world.step(delta, 10, 10);
         elapsedTime += delta;
-
+        box2DDebugRenderer.render(world, getCamera().combined);
     }
 
 }

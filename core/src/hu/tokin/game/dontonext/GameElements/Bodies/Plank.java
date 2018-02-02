@@ -9,20 +9,21 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
 
 /**
- * Created by M on 2/2/2018.
+ * Created by davim on 2018. 02. 02..
  */
 
-public class PoolBall extends WorldActorGroup {
-    public PoolBall(World world, final float x, final float y) {
-        super(world, ShapeType.Circle, BodyDef.BodyType.KinematicBody, 0, 0.2f, 5, false);
+public class Plank extends WorldActorGroup {
+    public Plank(World world, final float x,final float y,final float angle) {
+        super(world, ShapeType.Rectangle, BodyDef.BodyType.StaticBody, 0, 0.2f, 5, false);
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BADLOGIC_TEXTURE)){
             @Override
             public void init() {
                 super.init();
-                setSize(50/80f, 50/80f);
+                setSize(300/80f, 30/80f);
             }
         });
+        setSize(300/80f, 30/80f);
         setPosition(x/80f, y/80f);
-        setSize(50/80f, 50/80f);
+        setRotation(angle);
     }
 }
