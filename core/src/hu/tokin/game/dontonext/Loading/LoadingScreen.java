@@ -33,19 +33,27 @@ public class LoadingScreen extends MyScreen {
 
             }
         };
-        //stage.addActor(backGround= new OneSpriteStaticActor("loadingbg.png"));
-//        backGround.setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
-  //      backGround.setPosition(0,0);
-        /*stage.addActor(new OneSpriteAnimatedActor("loading/loading.txt")
+        stage.addActor(backGround= new OneSpriteStaticActor("GameTextures/asztal.png"));
+        backGround.setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+        backGround.setPosition(0,0);
+        stage.addActor(new OneSpriteAnimatedActor("loading/loading.txt")
         {
             @Override
             public void init() {
                 super.init();
                 setFps(30);
-                setSize(400, 400);
-                setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, Globals.WORLD_HEIGHT/2-this.getHeight()/2);
+                setSize(300, 300);
+                setPosition(Globals.WORLD_WIDTH/2f-this.getWidth()/2f, Globals.WORLD_HEIGHT/2f-this.getHeight()/2f);
             }
-        });*/
+        });
+        stage.addActor(new OneSpriteStaticActor("OtherTextures/pen.png"){
+            @Override
+            public void init() {
+                super.init();
+                setSize(150,150);
+                setPosition(Globals.WORLD_WIDTH-getWidth(), 0);
+            }
+        });
     }
 
 
@@ -59,7 +67,7 @@ public class LoadingScreen extends MyScreen {
     public void render(float delta) {
         super.render(delta);
 
-        if (/*elapsedTime > 2.0 &&*/ Assets.manager.update()) {
+        if (elapsedTime > 2.0 && Assets.manager.update()) {
             if (Assets.manager.update()) {
                 Assets.afterLoaded();
                 if(Globals.getPrefs().getBoolean("firstRun", true)){
