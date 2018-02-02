@@ -36,6 +36,8 @@ public class Assets {
 
 
     public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE = new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
+    public static final AssetDescriptor<Texture> EMPTY = new AssetDescriptor<Texture>("OtherTextures/zolipls.png", Texture.class);
+
 
 
 
