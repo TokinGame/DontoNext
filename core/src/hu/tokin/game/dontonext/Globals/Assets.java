@@ -37,10 +37,12 @@ public class Assets {
 
     public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE = new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
     public static final AssetDescriptor<Texture> EMPTY = new AssetDescriptor<Texture>("OtherTextures/zolipls.png", Texture.class);
+    public static final AssetDescriptor<Music> MAIN_MUSIC = new AssetDescriptor<Music>("music/music.wav", Music.class);
+    public static final AssetDescriptor<Texture> MUSIC_ON = new AssetDescriptor<Texture>("music/musicon.png", Texture.class);
+    public static final AssetDescriptor<Texture> MUSIC_OFF = new AssetDescriptor<Texture>("music/musicoff.png", Texture.class);
     public static final AssetDescriptor<Texture> BACKGROUND_TABLE = new AssetDescriptor<Texture>("GameTextures/asztal.png", Texture.class);
     public static final AssetDescriptor<Texture> CUE_1 = new AssetDescriptor<Texture>("GameTextures/dako/egyik.png", Texture.class);
     public static final AssetDescriptor<Texture> CUE_2 = new AssetDescriptor<Texture>("GameTextures/dako/masik.png", Texture.class);
-
 
 
 
@@ -59,20 +61,16 @@ public class Assets {
         manager.setLoader(BitmapFont.class, ".otf", new FreetypeFontLoader(resolver));
         manager.load(BADLOGIC_TEXTURE);
         manager.load(CALIBRI_FONT);
-
-        manager.load(BACKGROUND_TABLE);
-
-        manager.load(CUE_1);
-        manager.load(CUE_2);
+        manager.load(MUSIC_OFF);
+        manager.load(MUSIC_ON);
 
     }
 
     public static void afterLoaded() {
-        // TODO: 1/5/2018 zene
-        /*
+
         manager.get(MAIN_MUSIC).setLooping(true);
         if (Globals.music) manager.get(MAIN_MUSIC).play();
-        */
+
     }
 
     public static void unload() {
