@@ -87,6 +87,10 @@ public class WorldActorGroup extends Group implements WorldInterface, InitableIn
         init();
     }
 
+    public void contact(WorldActorGroup another){
+
+    }
+
     @Override
     public void init() {
         setSize(1,1);

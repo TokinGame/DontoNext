@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
-import hu.tokin.game.dontonext.GameElements.Bodies.Fan;
+import hu.tokin.game.dontonext.GameElements.Bodies.Air;
 import hu.tokin.game.dontonext.GameElements.Bodies.Plank;
 import hu.tokin.game.dontonext.GameElements.Bodies.PoolBall;
 import hu.tokin.game.dontonext.GameElements.UI.PlaceableActor;
@@ -52,6 +52,10 @@ public class GameStage extends MyStage {
     float randomF(float a, float b){return (float) (Math.random()*(b-a+1)+a);}
 
 
+
+    PoolBall poolBall;
+
+
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
         controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT, new OrthographicCamera(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT)),new SpriteBatch(), game, this);
@@ -62,7 +66,9 @@ public class GameStage extends MyStage {
         world.setContactListener(new ContactListener() {
             @Override
             public void beginContact(Contact contact) {
-
+                System.out.println("KONTAKCIÓ");
+                ((WorldActorGroup)contact.getFixtureA().getBody().getUserData()).contact((WorldActorGroup)contact.getFixtureB().getBody().getUserData());
+                ((WorldActorGroup)contact.getFixtureB().getBody().getUserData()).contact((WorldActorGroup)contact.getFixtureA().getBody().getUserData());
             }
 
             @Override
@@ -99,10 +105,10 @@ public class GameStage extends MyStage {
         });
 
 
-        addActor(new Plank(world, loader, 150, 150, 0));
-        addActor(new PoolBall(world, loader, 100, 300));
+        addActor(new Plank(world, loader, 10, 150, 0));
+        addActor(poolBall = new PoolBall(world, loader, 100, 300));
 
-        addActor(new Fan(this, world, loader, 400, 0, 45));
+        addActor(new Air(world, 400, 200, 45));
 
         addBackEventStackListener();
     }
@@ -136,7 +142,7 @@ public class GameStage extends MyStage {
     public void buildMap(ArrayList<PlaceableActor> blocks){
         for (PlaceableActor plc: blocks) {
             switch (plc.getType()){
-                case FAN: addActor(new Fan(this, world, loader, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation()))); break;
+                //case FAN: addActor(new Fan(this, world, loader, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation()))); break;
                 case PLANK: addActor(new Plank(world, loader, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation()))); break;
             }
         }
