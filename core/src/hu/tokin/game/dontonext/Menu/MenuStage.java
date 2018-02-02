@@ -52,7 +52,7 @@ public class MenuStage extends MyStage {
             @Override
             public void init() {
                 super.init();
-                setPosition(10, Globals.WORLD_HEIGHT-this.getHeight()-10);
+                setPosition((Globals.WORLD_WIDTH/5-this.getWidth()/5)*1, 1000);
                 float[] x={getX()+getWidth(),getY()};
                 pos.add(x);
                 addListener(new ClickListener(){
@@ -62,31 +62,29 @@ public class MenuStage extends MyStage {
                         game.setScreen(new GameScreen(game));
                     }
                 });
+
+            }
+            float elapsedTime = 0;
+            float maxWidth = 580, maxHeight = 500;
+
+            @Override
+            public void act(float delta) {
+                elapsedTime += delta;
+                setPosition((((Globals.WORLD_WIDTH - this.getWidth())/5)*1)-200, maxHeight);
+                super.act(delta);
+
+
+                setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
             }
         });
 
-        addActor(new MyTextButton("High Scores",game.getTextButtonStyle()){
-            @Override
-            public void init() {
-                super.init();
-                setPosition(10, (Globals.WORLD_HEIGHT/5-this.getHeight()/5)*4);
-                float[] x={getX()+getWidth(),getY()};
-                pos.add(x);
-                addListener(new ClickListener(){
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        //game.setScreen(new HighScreen(game));
-                    }
-                });
-            }
-        });
 
-        addActor(new MyTextButton("Hogyan Játssz",game.getTextButtonStyle()){
+
+        addActor(new MyTextButton("Hogyan\nJátssz",game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
-                setPosition(10, (Globals.WORLD_HEIGHT/5-this.getHeight()/5)*3);
+                setPosition((Globals.WORLD_WIDTH/5-this.getWidth()/5)*2, 950);
                 float[] x={getX()+getWidth(),getY()};
                 pos.add(x);
                 addListener(new ClickListener(){
@@ -97,13 +95,25 @@ public class MenuStage extends MyStage {
                     }
                 });
             }
+            float elapsedTime = 0;
+            float maxWidth = 580, maxHeight = 525;
+
+            @Override
+            public void act(float delta) {
+                elapsedTime += delta;
+                setPosition((((Globals.WORLD_WIDTH - this.getWidth())/5)*2)-200, maxHeight);
+                super.act(delta);
+
+
+                setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
+            }
         });
 
         addActor(new MyTextButton("Készítők",game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
-                setPosition(10, (Globals.WORLD_HEIGHT/5-this.getHeight()/5)*2);
+                setPosition(((Globals.WORLD_WIDTH/2-this.getWidth()/2)), 1000);
                 float[] x={getX()+getWidth(),getY()};
                 pos.add(x);
                 addListener(new ClickListener(){
@@ -114,13 +124,25 @@ public class MenuStage extends MyStage {
                     }
                 });
             }
+            float elapsedTime = 0;
+            float maxWidth = 580, maxHeight = 500;
+
+            @Override
+            public void act(float delta) {
+                elapsedTime += delta;
+                setPosition((((Globals.WORLD_WIDTH/2 - this.getWidth()/2))), maxHeight);
+                super.act(delta);
+
+
+                setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
+            }
         });
 
         addActor(new MyTextButton("Beállítások",game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
-                setPosition(10, Globals.WORLD_HEIGHT/5-this.getHeight()/5);
+                setPosition((Globals.WORLD_WIDTH/5-this.getWidth()/5)*4, 1000);
                 float[] x={getX()+getWidth(),getY()};
                 pos.add(x);
                 addListener(new ClickListener(){
@@ -131,13 +153,25 @@ public class MenuStage extends MyStage {
                     }
                 });
             }
+            float elapsedTime = 0;
+            float maxWidth = 580, maxHeight = 500;
+
+            @Override
+            public void act(float delta) {
+                elapsedTime += delta;
+                setPosition((((Globals.WORLD_WIDTH - this.getWidth())/5)*4)-50, maxHeight);
+                super.act(delta);
+
+
+                setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
+            }
         });
 
         addActor(new MyTextButton("Kilépés",game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
-                setPosition(10, 10);
+                setPosition((Globals.WORLD_WIDTH/5-this.getWidth()/5)*5, 1000);
                 float[] x={getX()+getWidth(),getY()};
                 pos.add(x);
                 addListener(new ClickListener(){
@@ -147,6 +181,18 @@ public class MenuStage extends MyStage {
                         game.setScreen(new ExitScreen(game));
                     }
                 });
+            }
+            float elapsedTime = 0;
+            float maxWidth = 580, maxHeight = 500;
+
+            @Override
+            public void act(float delta) {
+                elapsedTime += delta;
+                setPosition((((Globals.WORLD_WIDTH - this.getWidth())/5)*5)-50, maxHeight);
+                super.act(delta);
+
+
+                setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
             }
         });
 
