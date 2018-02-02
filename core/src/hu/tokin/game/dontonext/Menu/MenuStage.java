@@ -64,16 +64,27 @@ public class MenuStage extends MyStage {
                 super.init();
                 setSize(150, 150);
                 setOrigin(0, 0);
-                setPosition(20, 20);
+                setPosition(50, 20);
+                setRotation(30);
             }
         });
 
+        addActor(porog = new OneSpriteAnimatedActor("GameTextures/ventilator/venti.txt"){
+            @Override
+            public void init() {
+                super.init();
+                setSize(150, 150);
+                setOrigin(0, 0);
+                setPosition(Globals.WORLD_WIDTH+70-this.getWidth()+70, 80);
+                setRotation(120);
+            }
+        });
 
         addActor(new MyTextButton("Játék",game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
-                setPosition((Globals.WORLD_WIDTH/5-this.getWidth()/5)*1, 1000);
+                setPosition(((Globals.WORLD_WIDTH/2-this.getWidth()/2)), 1000);
                 float[] x={getX()+getWidth(),getY()};
                 pos.add(x);
                 addListener(new ClickListener(){
@@ -91,10 +102,10 @@ public class MenuStage extends MyStage {
             @Override
             public void act(float delta) {
                 elapsedTime += delta;
-                setPosition((((Globals.WORLD_WIDTH - this.getWidth())/5)*1)-200, maxHeight);
+
                 super.act(delta);
 
-
+                setPosition((((Globals.WORLD_WIDTH/2 - this.getWidth()/2))), maxHeight);
                 setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
             }
         });
@@ -134,7 +145,7 @@ public class MenuStage extends MyStage {
             @Override
             public void init() {
                 super.init();
-                setPosition(((Globals.WORLD_WIDTH/2-this.getWidth()/2)), 1000);
+                setPosition((Globals.WORLD_WIDTH/5-this.getWidth()/5)*1, 1000);
                 float[] x={getX()+getWidth(),getY()};
                 pos.add(x);
                 addListener(new ClickListener(){
@@ -151,7 +162,7 @@ public class MenuStage extends MyStage {
             @Override
             public void act(float delta) {
                 elapsedTime += delta;
-                setPosition((((Globals.WORLD_WIDTH/2 - this.getWidth()/2))), maxHeight);
+                setPosition((((Globals.WORLD_WIDTH - this.getWidth())/5)*1)-200, maxHeight);
                 super.act(delta);
 
 
