@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import hu.tokin.game.dontonext.GameElements.Bodies.Fan;
 import hu.tokin.game.dontonext.GameElements.Bodies.Plank;
 import hu.tokin.game.dontonext.GameElements.Bodies.PoolBall;
+import hu.tokin.game.dontonext.GameElements.UI.PlaceableActor;
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldActorGroup;
@@ -121,6 +122,14 @@ public class GameStage extends MyStage {
     }
 
 
+    public void buildMap(ArrayList<PlaceableActor> blocks){
+        for (PlaceableActor plc: blocks) {
+            switch (plc.getType()){
+                case FAN: addActor(new Fan(this, world, loader, plc.convertXY()[0], plc.convertXY()[1], (float) Math.toDegrees(plc.getRotation())));
+                case PLANK: addActor(new Plank(world, loader, plc.convertXY()[0], plc.convertXY()[1], (float) Math.toDegrees(plc.getRotation())));
+            }
+        }
+    }
 
     public void removeBody(WorldActorGroup group){
         rem.add(group);

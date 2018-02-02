@@ -24,14 +24,12 @@ public class BlockSelector extends Group {
 
     private BlockSelectButton b0, b1, b2;
 
-    GameStage gameStage;
 
     OneSpriteStaticActor nyil;
 
 
-    public BlockSelector(GameStage g) {
+    public BlockSelector() {
         super();
-        gameStage = g;
         this.setSize(400,400);
         this.setPosition(Globals.WORLD_WIDTH - 100, Globals.WORLD_HEIGHT/2f - this.getHeight()/2f);
 

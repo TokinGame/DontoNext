@@ -69,7 +69,7 @@ public class Assets {
         manager.load(MUSIC_OFF);
         manager.load(MUSIC_ON);
         manager.load(EMPTY);
-        
+
         manager.load(BACKGROUND_TABLE);
         manager.load(MAIN_MUSIC);
         manager.load(PEN);
