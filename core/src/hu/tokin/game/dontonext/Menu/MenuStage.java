@@ -11,15 +11,18 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.util.ArrayList;
 
 
+import hu.tokin.game.dontonext.Credits.CreditsScreen;
+import hu.tokin.game.dontonext.Exit.ExitScreen;
 import hu.tokin.game.dontonext.Game.GameScreen;
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
 
+import hu.tokin.game.dontonext.HowToPlay.HowToPlayScreen;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokin.game.dontonext.MyBaseClasses.UI.MyTextButton;
 import hu.tokin.game.dontonext.MyGdxGame;
-
+import hu.tokin.game.dontonext.Settings.SettingsScreen;
 
 
 /**
@@ -90,7 +93,7 @@ public class MenuStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                       // game.setScreen(new HowToPlayScreen(game));
+                       game.setScreen(new HowToPlayScreen(game));
                     }
                 });
             }
@@ -107,7 +110,7 @@ public class MenuStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                      //  game.setScreen(new CreditsScreen(game));
+                        game.setScreen(new CreditsScreen(game));
                     }
                 });
             }
@@ -124,7 +127,7 @@ public class MenuStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                       // game.setScreen(new SettingsScreen(game));
+                        game.setScreen(new SettingsScreen(game));
                     }
                 });
             }
@@ -141,7 +144,7 @@ public class MenuStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        //game.setScreen(new ExitScreen(game));
+                        game.setScreen(new ExitScreen(game));
                     }
                 });
             }
@@ -156,7 +159,7 @@ public class MenuStage extends MyStage {
     @Override
     public boolean keyDown(int keycode) {
         if(keycode == Input.Keys.BACK){
-            //game.setScreen(new ExitScreen(game));
+            game.setScreen(new ExitScreen(game));
         }
         return false;
     }
