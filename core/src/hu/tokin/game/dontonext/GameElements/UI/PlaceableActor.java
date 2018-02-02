@@ -52,7 +52,7 @@ public class PlaceableActor extends OneSpriteStaticActor {
 
 
     public enum Type{
-        FAN,
+        AIR,
         PLANK
     }
 
