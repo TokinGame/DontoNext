@@ -37,6 +37,7 @@ public class MenuStage extends MyStage {
     OneSpriteStaticActor Hajo;
 
     OneSpriteAnimatedActor porog;
+    OneSpriteAnimatedActor fuj;
 
 
     public MenuStage(Viewport viewport, Batch batch, MyGdxGame gam) {
@@ -58,6 +59,17 @@ public class MenuStage extends MyStage {
             }
         });
 
+        addActor(fuj = new OneSpriteAnimatedActor("GameTextures/szel/szel.txt"){
+            @Override
+            public void init() {
+                super.init();
+                setSize(150, 150);
+                setOrigin(0, 0);
+                setPosition(170, 90);
+                setRotation(30);
+            }
+        });
+
         addActor(porog = new OneSpriteAnimatedActor("GameTextures/ventilator/venti.txt"){
             @Override
             public void init() {
@@ -66,6 +78,17 @@ public class MenuStage extends MyStage {
                 setOrigin(0, 0);
                 setPosition(50, 20);
                 setRotation(30);
+            }
+        });
+
+        addActor(fuj = new OneSpriteAnimatedActor("GameTextures/szel/szel.txt"){
+            @Override
+            public void init() {
+                super.init();
+                setSize(150, 150);
+                setOrigin(0, 0);
+                setPosition(Globals.WORLD_WIDTH+37-this.getWidth()+37, 190);
+                setRotation(120);
             }
         });
 

@@ -1,6 +1,7 @@
 package hu.tokin.game.dontonext.GameElements.Bodies;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 
@@ -27,6 +28,7 @@ public class PoolBall extends WorldActorGroup {
                 setFps(20);
             }
         });
+
         setPosition((float)x/80f, (float)y/80f);
         setSize((float)40/80, (float)40/80);
         addToWorld();
@@ -35,5 +37,18 @@ public class PoolBall extends WorldActorGroup {
     @Override
     public void act(float delta) {
         super.act(delta);
+    }
+
+    @Override
+    public void contact(WorldActorGroup another) {
+        super.contact(another);
+        if(another instanceof Air){
+            float airRotation = another.getRotation();
+            System.out.println("huehuehuehue rootttttoot "+ airRotation);
+            Vector2 vector2 = new Vector2(600, 0);
+            Vector2 rotateVector2 = vector2.setAngleRad(airRotation);
+            this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x, this.getBody().getLinearVelocity().y);
+            this.getBody().applyForceToCenter(rotateVector2, false);
+        }
     }
 }
