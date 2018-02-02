@@ -80,7 +80,6 @@ public class ControlStage extends MyStage {
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 super.touchDragged(event, x, y, pointer);
-                //System.out.println("AngleActor: " + x + " ------ " + y);
                 for (Actor placable: getActors()) {
                     if(placable instanceof PlaceableActor){
                         if(((PlaceableActor) placable).isPressed()) {
@@ -97,6 +96,8 @@ public class ControlStage extends MyStage {
         });
     }
 
+
+
     public void start(){
         ArrayList<PlaceableActor> plc = new ArrayList<PlaceableActor>();
         for (Actor placable: getActors()) {
@@ -107,11 +108,6 @@ public class ControlStage extends MyStage {
         gameStage.buildMap(plc);
     }
 
-    public void removeAllRotate(){
-        /*for (Actor actor: getActors()) {
-            if(actor instanceof RotateButton) actor.remove();
-        }*/
-    }
 
     @Override
     public void init() {

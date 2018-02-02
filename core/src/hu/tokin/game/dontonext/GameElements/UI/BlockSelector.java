@@ -22,7 +22,7 @@ public class BlockSelector extends Group {
     private boolean moving = false;
     private State state;
 
-    private BlockSelectButton b0, b1, b2;
+    private BlockSelectButton b0, b1, b2, b3, b4, b5, b6, b7;
 
 
     OneSpriteStaticActor nyil;
@@ -70,8 +70,70 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b0 = new BlockSelectButton(150, 275, this, 0, Assets.manager.get(Assets.CUE_2)));
-        addActor(b1 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)));
+        //addActor(b0 = new BlockSelectButton(150, 275, this, 0, Assets.manager.get(Assets.CUE_2)));
+        addActor(b0 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+            @Override
+            public void init() {
+                super.init();
+                this.setRotation((float) Math.toRadians(0));
+            }
+        });
+
+        addActor(b1 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+            @Override
+            public void init() {
+                super.init();
+                this.setRotation((float) Math.toRadians(45));
+            }
+        });
+
+        addActor(b2 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+            @Override
+            public void init() {
+                super.init();
+                this.setRotation((float) Math.toRadians(90));
+            }
+        });
+
+        addActor(b3 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+            @Override
+            public void init() {
+                super.init();
+                this.setRotation((float) Math.toRadians(135));
+            }
+        });
+
+        addActor(b4 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+            @Override
+            public void init() {
+                super.init();
+                this.setRotation((float) Math.toRadians(180));
+            }
+        });
+
+        addActor(b5 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.CUE_2)){
+            @Override
+            public void init() {
+                super.init();
+                this.setRotation((float) Math.toRadians(135));
+            }
+        });
+
+        addActor(b6 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.CUE_2)){
+            @Override
+            public void init() {
+                super.init();
+                this.setRotation((float) Math.toRadians(0));
+            }
+        });
+
+        addActor(b7 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.CUE_2)){
+            @Override
+            public void init() {
+                super.init();
+                this.setRotation((float) Math.toRadians(45));
+            }
+        });
 
     }
 
