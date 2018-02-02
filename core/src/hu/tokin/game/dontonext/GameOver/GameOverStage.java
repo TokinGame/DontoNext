@@ -41,34 +41,6 @@ public class GameOverStage extends MyStage {
         });
 
 
-        addActor(new MyTextButton("Biztosan ki akarsz lépni?", game.getTextButtonStyle()) {
-            @Override
-            public void init() {
-                super.init();
-                setPosition(Globals.WORLD_WIDTH / 2 - this.getWidth() / 2, Globals.WORLD_HEIGHT / 2 - this.getHeight() / 2);
-                addListener(new ClickListener() {
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        game.setScreenBackByStackPop();
-                    }
-                });
-            }
-        });
-        addActor(new MyTextButton("Igen", game.getTextButtonStyle()) {
-            @Override
-            public void init() {
-                super.init();
-                setPosition(10, 10);
-                addListener(new ClickListener() {
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        Gdx.app.exit();
-                    }
-                });
-            }
-        });
         addActor(new MyTextButton("Menü", game.getTextButtonStyle()) {
             @Override
             public void init() {

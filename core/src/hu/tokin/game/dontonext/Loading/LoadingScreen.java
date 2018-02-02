@@ -46,12 +46,20 @@ public class LoadingScreen extends MyScreen {
                 setPosition(Globals.WORLD_WIDTH/2f-this.getWidth()/2f, Globals.WORLD_HEIGHT/2f-this.getHeight()/2f);
             }
         });
-        stage.addActor(new OneSpriteStaticActor("OtherTextures/pen.png"){
+        stage.addActor(new OneSpriteStaticActor("OtherTextures/PEN.png"){
             @Override
             public void init() {
                 super.init();
                 setSize(150,150);
-                setPosition(Globals.WORLD_WIDTH-getWidth(), 0);
+                setPosition(Globals.WORLD_WIDTH-getWidth()-100, 100);
+            }
+        });
+        stage.addActor(new OneSpriteStaticActor("OtherTextures/tokin.png"){
+            @Override
+            public void init() {
+                super.init();
+                setSize(100, 100);
+                setPosition(100, 100);
             }
         });
     }
