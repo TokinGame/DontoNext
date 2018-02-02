@@ -65,7 +65,8 @@ public class Assets {
         manager.load(CALIBRI_FONT);
         manager.load(MUSIC_OFF);
         manager.load(MUSIC_ON);
-
+        manager.load(EMPTY);
+        
         manager.load(BACKGROUND_TABLE);
 
         manager.load(CUE_1);
