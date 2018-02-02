@@ -72,6 +72,7 @@ public class Assets {
         manager.load(CUE_2);
         manager.load(BALL);
 
+        manager.load(MAIN_MUSIC);
     }
 
     public static void afterLoaded() {
