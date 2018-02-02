@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldActorGroup;
+import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
 
@@ -13,18 +14,18 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
  */
 
 public class Plank extends WorldActorGroup {
-    public Plank(World world, final float x,final float y,final float angle) {
-        super(world, ShapeType.Rectangle, BodyDef.BodyType.StaticBody, 0, 0.2f, 5, false);
+    public Plank(World world, WorldBodyEditorLoader loader, final float x, final float y, final float angle) {
+        super(world, loader, "masik.png", BodyDef.BodyType.StaticBody, 0, 0.2f, 5, false);
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.CUE_2)){
             @Override
             public void init() {
                 super.init();
-                setSize((float)300/80f, (float)30/80f);
+                setSize((float)300/80f, (float)20/80f);
             }
         });
-        setSize((float)300/80f, (float)30/80f);
+        setSize((float)300/80f, (float)20/80f);
         setPosition(x/80f, y/80f);
-        setRotation(angle);
+        setRotation((float)Math.toRadians(angle));
         addToWorld();
     }
 }

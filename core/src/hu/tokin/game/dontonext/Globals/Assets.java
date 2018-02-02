@@ -40,6 +40,7 @@ public class Assets {
     public static final AssetDescriptor<Texture> BACKGROUND_TABLE = new AssetDescriptor<Texture>("GameTextures/asztal.png", Texture.class);
     public static final AssetDescriptor<Texture> CUE_1 = new AssetDescriptor<Texture>("GameTextures/dako/egyik.png", Texture.class);
     public static final AssetDescriptor<Texture> CUE_2 = new AssetDescriptor<Texture>("GameTextures/dako/masik.png", Texture.class);
+    public static final AssetDescriptor<Texture> BALL = new AssetDescriptor<Texture>("GameTextures/golyo.png", Texture.class);
 
 
 
@@ -64,6 +65,7 @@ public class Assets {
 
         manager.load(CUE_1);
         manager.load(CUE_2);
+        manager.load(BALL);
 
     }
 

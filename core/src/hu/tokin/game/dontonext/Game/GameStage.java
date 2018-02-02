@@ -88,8 +88,10 @@ public class GameStage extends MyStage {
         inputMultiplexer.addProcessor(controlStage);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
-        addActor(new Plank(world, 100, 100, 0));
-        addActor(new PoolBall(world, 200, 200));
+        addActor(new Plank(world, loader, 150, 150, 45));
+        addActor(new PoolBall(world, loader, 100, 300));
+
+        addBackEventStackListener();
     }
 
 
@@ -99,7 +101,7 @@ public class GameStage extends MyStage {
 
     @Override
     public boolean keyDown(int keycode) {
-        if(keycode == Input.Keys.BACK){
+        if(keycode == Input.Keys.BACK && keycode == Input.Keys.ESCAPE){
             game.setScreenBackByStackPop();
         }
         return false;
