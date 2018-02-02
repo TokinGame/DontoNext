@@ -25,6 +25,7 @@ public class PlaceableActor extends OneSpriteStaticActor {
     public PlaceableActor(Type type) {
         super(Assets.manager.get(type == Type.PLANK ? Assets.CUE_2 : Assets.BADLOGIC_TEXTURE));
         this.type = type;
+        this.setSize(type == Type.PLANK ? 300 : 150, type == Type.PLANK ? 20 : 150);
         addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -44,10 +45,6 @@ public class PlaceableActor extends OneSpriteStaticActor {
 
     public Type getType() {
         return type;
-    }
-
-    public float[] convertXY(){
-        return new float[]{getX()/80f,getY()/80f};
     }
 
 

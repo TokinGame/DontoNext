@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.util.ArrayList;
+
 import hu.tokin.game.dontonext.GameElements.UI.BlockSelector;
 import hu.tokin.game.dontonext.GameElements.UI.PlaceableActor;
 import hu.tokin.game.dontonext.Globals.Assets;
@@ -41,6 +43,22 @@ public class ControlStage extends MyStage {
 
         addActor(new PlaceableActor(PlaceableActor.Type.PLANK));
         addActor(new PlaceableActor(PlaceableActor.Type.FAN));
+
+        addActor(new MyTextButton("Start", game.getTextButtonStyle()){
+            @Override
+            public void init() {
+                super.init();
+                this.setPosition(Globals.WORLD_WIDTH /2f - getWidth() / 2f, Globals.WORLD_HEIGHT - getHeight());
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        start();
+                        System.out.println("asdklfjklasdj");
+                    }
+                });
+            }
+        });
     }
 
     private void setUpDrag(){
@@ -76,6 +94,16 @@ public class ControlStage extends MyStage {
                 super.touchUp(event, x, y, pointer, button);
             }
         });
+    }
+
+    public void start(){
+        ArrayList<PlaceableActor> plc = new ArrayList<PlaceableActor>();
+        for (Actor placable: getActors()) {
+            if(placable instanceof PlaceableActor){
+                plc.add((PlaceableActor) placable);
+            }
+        }
+        gameStage.buildMap(plc);
     }
 
     @Override

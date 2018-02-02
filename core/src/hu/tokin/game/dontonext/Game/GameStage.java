@@ -125,8 +125,8 @@ public class GameStage extends MyStage {
     public void buildMap(ArrayList<PlaceableActor> blocks){
         for (PlaceableActor plc: blocks) {
             switch (plc.getType()){
-                case FAN: addActor(new Fan(this, world, loader, plc.convertXY()[0], plc.convertXY()[1], (float) Math.toDegrees(plc.getRotation())));
-                case PLANK: addActor(new Plank(world, loader, plc.convertXY()[0], plc.convertXY()[1], (float) Math.toDegrees(plc.getRotation())));
+                case FAN: addActor(new Fan(this, world, loader, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation())));
+                case PLANK: addActor(new Plank(world, loader, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation())));
             }
         }
     }
