@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import hu.tokin.game.dontonext.GameElements.UI.BlockSelector;
 import hu.tokin.game.dontonext.GameElements.UI.PlaceableActor;
+import hu.tokin.game.dontonext.GameElements.UI.RotateButton;
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
@@ -41,8 +42,8 @@ public class ControlStage extends MyStage {
 
         addActor(new BlockSelector());
 
-        addActor(new PlaceableActor(PlaceableActor.Type.PLANK));
-        addActor(new PlaceableActor(PlaceableActor.Type.FAN));
+        addActor(new PlaceableActor(PlaceableActor.Type.PLANK, this));
+        addActor(new PlaceableActor(PlaceableActor.Type.FAN, this));
 
         addActor(new MyTextButton("Start", game.getTextButtonStyle()){
             @Override
@@ -104,6 +105,12 @@ public class ControlStage extends MyStage {
             }
         }
         gameStage.buildMap(plc);
+    }
+
+    public void removeAllRotate(){
+        for (Actor actor:getActors()) {
+            if(actor instanceof RotateButton) actor.remove();
+        }
     }
 
     @Override

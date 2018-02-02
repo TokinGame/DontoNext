@@ -33,7 +33,7 @@ public class BlockSelector extends Group {
         this.setSize(400,400);
         this.setPosition(Globals.WORLD_WIDTH - 100, Globals.WORLD_HEIGHT/2f - this.getHeight()/2f);
 
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BADLOGIC_TEXTURE)){
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.TRAY)){
             @Override
             public void init() {
                 super.init();
@@ -41,38 +41,17 @@ public class BlockSelector extends Group {
                 this.setPosition(0,0);
             }
         });
-/*
-        addActor(nyil = new OneSpriteStaticActor(Assets.manager.get(Assets.MENHAJ)){
+
+        addActor(nyil = new OneSpriteStaticActor(Assets.manager.get(Assets.CUE_1)){
             @Override
             public void init() {
                 super.init();
                 this.setSize(100, 60);
-                setPosition(275, 295);
+                setPosition(75, 295);
             }
         });
 
-        addActor(new MyLabel(Globals.costs[0]+" Ft", gameStage.game.getLabelStyle_White_DarkBG()){
-            @Override
-            public void init() {
-                super.init();
-                setPosition(10, 295);
-            }
-        });
-        addActor(new MyLabel(Globals.costs[1]+" Ft", gameStage.game.getLabelStyle_White_DarkBG()){
-            @Override
-            public void init() {
-                super.init();
-                setPosition(10, 170);
-            }
-        });
-        addActor(new MyLabel(Globals.costs[2]+" Ft", gameStage.game.getLabelStyle_White_DarkBG()){
-            @Override
-            public void init() {
-                super.init();
-                setPosition(10, 45);
-            }
-        });
-*/
+
         state = State.IN;
         addListener(new ClickListener(){
             @Override
@@ -91,9 +70,8 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b0 = new BlockSelectButton(150, 275, this, 0, Assets.manager.get(Assets.BADLOGIC_TEXTURE)));
-        addActor(b1 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.BADLOGIC_TEXTURE)));
-        addActor(b2 = new BlockSelectButton(150, 25, this, 2, Assets.manager.get(Assets.BADLOGIC_TEXTURE)));
+        addActor(b0 = new BlockSelectButton(150, 275, this, 0, Assets.manager.get(Assets.CUE_2)));
+        addActor(b1 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)));
 
     }
 
@@ -120,23 +98,23 @@ public class BlockSelector extends Group {
     }
 
     public void selected(int id){
-        /*
+
         switch(id){
             case 0:
-                Globals.selectedBlock = Globals.Selectable.WALL;
-                nyil.setPosition(275, 295);
+                Globals.selectedBlock = Globals.Selectable.CUE;
+                nyil.setPosition(75, 295);
                 break;
             case 1:
-                Globals.selectedBlock = Globals.Selectable.TURRET;
-                nyil.setPosition(275, 170);
+                Globals.selectedBlock = Globals.Selectable.FAN;
+                nyil.setPosition(75, 170);
                 break;
             case 2:
-                Globals.selectedBlock = Globals.Selectable.OTHERTURRET;
+                //Globals.selectedBlock = Globals.Selectable.OTHERTURRET;
                 nyil.setPosition(275, 45);
                 break;
 
         }
-        System.out.println(Globals.selectedBlock);*/
+        System.out.println(Globals.selectedBlock);
     }
 
 

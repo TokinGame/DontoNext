@@ -100,7 +100,7 @@ public class GameStage extends MyStage {
 
 
         addActor(new Plank(world, loader, 150, 150, 0));
-        addActor(new PoolBall(world, loader, 100, 300));
+        addActor(new PoolBall(world, loader, 100, 500));
 
         addActor(new Fan(this, world, loader, 400, 0, 45));
 

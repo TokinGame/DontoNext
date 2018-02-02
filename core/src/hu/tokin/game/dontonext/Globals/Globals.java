@@ -20,6 +20,10 @@ public class Globals {
     public static final int WORLD_WIDTH = 1280;
     public static final int WORLD_HEIGHT = 720;
 
+    public static enum Selectable{CUE, FAN}
+
+    public static Selectable selectedBlock = Selectable.CUE;
+
 
     public static final Preferences prefs = Gdx.app.getPreferences("main");
 

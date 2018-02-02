@@ -80,10 +80,23 @@ public class MyGdxGame extends MyGame {
 		textButtonStyle.font = Assets.manager.get(Assets.CALIBRI_FONT);
 		// TODO: 1/5/2018 Button texture
 /*
-		textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.LABEL_BG)));
-		textButtonStyle.over = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.LABEL_BG)));
-		textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.LABEL_BG)));
+		textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BUTTON)));
+		textButtonStyle.over = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BUTTON)));
+		textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BUTTON)));
 */
+		return textButtonStyle;
+	}
+
+
+	public TextButton.TextButtonStyle getTextButtonStyle_Background() {
+		TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+		textButtonStyle.font = Assets.manager.get(Assets.CALIBRI_FONT);
+		// TODO: 1/5/2018 Button texture
+
+		textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BUTTON)));
+		textButtonStyle.over = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BUTTON)));
+		textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BUTTON)));
+
 		return textButtonStyle;
 	}
 
