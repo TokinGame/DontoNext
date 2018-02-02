@@ -94,7 +94,7 @@ public class GameStage extends MyStage {
             @Override
             public void init() {
                 super.init();
-                setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+                setSize(16, 9);
             }
         });
 
@@ -139,7 +139,6 @@ public class GameStage extends MyStage {
                 case FAN: addActor(new Fan(this, world, loader, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation()))); break;
                 case PLANK: addActor(new Plank(world, loader, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation()))); break;
             }
-            System.out.println("szar");
         }
         System.out.println(blocks);
     }
