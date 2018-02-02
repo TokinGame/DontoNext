@@ -124,7 +124,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b5 = new BlockSelectButton(10, 100, this, 1, Assets.manager.get(Assets.CUE_2), PlaceableActor.Type.PLANK){
+        addActor(b5 = new BlockSelectButton(10, 100, this, 1, Assets.manager.get(Assets.KOCKA), PlaceableActor.Type.PLANK){
             @Override
             public void init() {
                 super.init();
@@ -133,7 +133,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b6 = new BlockSelectButton(200, 100, this, 1, Assets.manager.get(Assets.CUE_2), PlaceableActor.Type.PLANK){
+        addActor(b6 = new BlockSelectButton(200, 100, this, 1, Assets.manager.get(Assets.KOCKA), PlaceableActor.Type.PLANK){
             @Override
             public void init() {
                 super.init();
@@ -143,7 +143,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b7 = new BlockSelectButton(390, 100, this, 1, Assets.manager.get(Assets.CUE_2), PlaceableActor.Type.PLANK){
+        addActor(b7 = new BlockSelectButton(390, 100, this, 1, Assets.manager.get(Assets.KOCKA), PlaceableActor.Type.PLANK){
             @Override
             public void init() {
                 super.init();

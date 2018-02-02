@@ -67,7 +67,7 @@ public class Assets {
     public static final AssetDescriptor<Texture> L5 = new AssetDescriptor<Texture>("GameTextures/Levels/5.png", Texture.class);
     public static final AssetDescriptor<Texture> L6 = new AssetDescriptor<Texture>("GameTextures/Levels/6.png", Texture.class);
 
-
+    public static final AssetDescriptor<Texture> KOCKA = new AssetDescriptor<Texture>("GameTextures/dako/kockadako.png", Texture.class);
 
 
 
@@ -113,7 +113,7 @@ public class Assets {
         manager.load(L4);
         manager.load(L5);
         manager.load(L6);
-
+        manager.load(KOCKA);
 
         manager.load(MAIN_MUSIC);
 
