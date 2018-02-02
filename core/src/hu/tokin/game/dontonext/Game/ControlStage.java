@@ -108,9 +108,9 @@ public class ControlStage extends MyStage {
     }
 
     public void removeAllRotate(){
-        for (Actor actor:getActors()) {
+        /*for (Actor actor: getActors()) {
             if(actor instanceof RotateButton) actor.remove();
-        }
+        }*/
     }
 
     @Override

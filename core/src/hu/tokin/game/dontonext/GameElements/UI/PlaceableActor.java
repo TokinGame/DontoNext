@@ -19,6 +19,8 @@ public class PlaceableActor extends OneSpriteStaticActor {
     private Type type;
     private final ControlStage controlStage;
 
+    private float angle, radAngle;
+
     public boolean isPressed() {
         return pressed;
     }
@@ -39,11 +41,41 @@ public class PlaceableActor extends OneSpriteStaticActor {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 pressed = false;
-                PlaceableActor.this.controlStage.addActor(new RotateButton(getX()+getWidth()+ 10, getY()+getWidth() + 10, PlaceableActor.this));
+                //PlaceableActor.this.controlStage.addActor(new RotateButton(getX()+getWidth()+ 10, getY()+getWidth() + 10, PlaceableActor.this));
                 super.touchUp(event, x, y, pointer, button);
             }
         });
 
+        this.addListener(new InputListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                onDrag(x,y);
+                pressed = true;
+                return true;
+            }
+
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                super.touchDragged(event, x, y, pointer);
+                //System.out.println("AngleActor: " + x + " ------ " + y);
+                onDrag(x,y);
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+                pressed = false;
+            }
+        });
+
+    }
+
+
+    private void onDrag(float x, float y){
+        if(x < 0.0f) x = 0.0f;
+        if(y < 0.0f) y = 0.0f;
+        radAngle = (float) Math.atan(y/x);
+        this.setRotation(radAngle);
     }
 
     public Type getType() {
