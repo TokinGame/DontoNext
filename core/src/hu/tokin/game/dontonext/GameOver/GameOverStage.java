@@ -1,4 +1,4 @@
-package hu.tokin.game.dontonext.Exit;
+package hu.tokin.game.dontonext.GameOver;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -19,19 +19,19 @@ import hu.tokin.game.dontonext.MyGdxGame;
  * Created by zoltan on 2018.02.02..
  */
 
-public class ExitStage extends MyStage {
+public class GameOverStage extends MyStage {
 
     MyGdxGame game;
 
 
-    public ExitStage(Viewport viewport, Batch batch, MyGdxGame gam) {
+    public GameOverStage(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
 
         game = gam;
         Gdx.input.setCatchBackKey(true);
 
 
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EXIT)) {
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.GAMEOVER)) {
             @Override
             public void init() {
                 super.init();
@@ -69,7 +69,7 @@ public class ExitStage extends MyStage {
                 });
             }
         });
-        addActor(new MyTextButton("Nem", game.getTextButtonStyle()) {
+        addActor(new MyTextButton("Menü", game.getTextButtonStyle()) {
             @Override
             public void init() {
                 super.init();
@@ -106,4 +106,3 @@ public class ExitStage extends MyStage {
 
     }
 }
-

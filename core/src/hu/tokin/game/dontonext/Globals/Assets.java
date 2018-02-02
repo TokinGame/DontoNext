@@ -47,6 +47,8 @@ public class Assets {
     public static final AssetDescriptor<Texture> PEN = new AssetDescriptor<Texture>("OtherTextures/PEN.png", Texture.class);
     public static final AssetDescriptor<Texture> BALL = new AssetDescriptor<Texture>("GameTextures/golyo.png", Texture.class);
     public static final AssetDescriptor<Texture> MENU_BG = new AssetDescriptor<Texture>("GameTextures/menu_bg.png", Texture.class);
+    public static final AssetDescriptor<Texture> GAMEOVER = new AssetDescriptor<Texture>("GameTextures/gameover.png", Texture.class);
+    public static final AssetDescriptor<Texture> EXIT = new AssetDescriptor<Texture>("GameTextures/exit.png", Texture.class);
 
     public static final AssetDescriptor<Texture> TRAY = new AssetDescriptor<Texture>("GameTextures/talca.png", Texture.class);
     public static final AssetDescriptor<Texture> BUTTON = new AssetDescriptor<Texture>("GameTextures/gomb.png", Texture.class);
@@ -77,6 +79,8 @@ public class Assets {
         manager.load(MUSIC_OFF);
         manager.load(MUSIC_ON);
         manager.load(EMPTY);
+        manager.load(GAMEOVER);
+        manager.load(EXIT);
 
         manager.load(BACKGROUND_TABLE);
         manager.load(MAIN_MUSIC);
