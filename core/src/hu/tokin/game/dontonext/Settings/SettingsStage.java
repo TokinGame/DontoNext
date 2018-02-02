@@ -18,28 +18,57 @@ import hu.tokin.game.dontonext.MyGdxGame;
 
 public class SettingsStage extends MyStage {
 
-    MyGdxGame game;
-    public static final String SOUDNFX_LABEL = "Hangeffektek: ", MUSIC_LABEL = "Zene: ";
 
+
+    MyGdxGame game;
+    boolean musicToggle=true;
+    public static final String SOUDNFX_LABEL = "Hangeffektek: ", MUSIC_LABEL = "Zene: ";
+    OneSpriteStaticActor Zene;
+    OneSpriteStaticActor NemZene;
     public SettingsStage(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
 
         game = gam;
-        /*
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_NOCON)){
+
+        /*addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_NOCON)){
             @Override
             public void init() {
                 super.init();
                 setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
                 setPosition(0,0);
             }
-        });
+        });*/
 
+
+        addActor(Zene=new OneSpriteStaticActor(Assets.manager.get(Assets.MUSIC_ON)){
+            @Override
+            public void init() {
+                super.init();
+                setSize(50, 50);
+                setPosition((Globals.WORLD_WIDTH/2-this.getWidth()/2)+100, 400);
+                if (!Globals.music) setTexture(Assets.manager.get(Assets.MUSIC_OFF));
+                addListener(new ClickListener() {
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        musicToggle = !musicToggle;
+                        Globals.music = !Globals.music;
+
+                        if (musicToggle) {
+                            setTexture(Assets.manager.get(Assets.MUSIC_ON));
+                            Assets.manager.get(Assets.MAIN_MUSIC).play();
+                        } else {
+                            setTexture(Assets.manager.get(Assets.MUSIC_OFF));
+                            Assets.manager.get(Assets.MAIN_MUSIC).pause();
+                        }
+                    }
+                });
+            }
+        });
         addActor(new MyTextButton(MUSIC_LABEL, game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
-                this.setText(MUSIC_LABEL + (Globals.music ? "Be" : "Ki"));
                 this.setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 400);
                 addListener(new ClickListener(){
                     @Override
@@ -55,9 +84,9 @@ public class SettingsStage extends MyStage {
                 });
             }
         });
-        */
 
-        addActor(new MyTextButton(SOUDNFX_LABEL, game.getTextButtonStyle()){
+
+        /*addActor(new MyTextButton(SOUDNFX_LABEL, game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
@@ -74,7 +103,7 @@ public class SettingsStage extends MyStage {
                     }
                 });
             }
-        });
+        });*/
 
 
         addActor(new MyTextButton("Vissza",game.getTextButtonStyle()){
