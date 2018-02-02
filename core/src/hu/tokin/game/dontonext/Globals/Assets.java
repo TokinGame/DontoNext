@@ -46,6 +46,7 @@ public class Assets {
     public static final AssetDescriptor<Texture> TOKIN = new AssetDescriptor<Texture>("OtherTextures/tokin.png", Texture.class);
     public static final AssetDescriptor<Texture> PEN = new AssetDescriptor<Texture>("OtherTextures/PEN.png", Texture.class);
     public static final AssetDescriptor<Texture> BALL = new AssetDescriptor<Texture>("GameTextures/golyo.png", Texture.class);
+    public static final AssetDescriptor<Texture> MENU_BG = new AssetDescriptor<Texture>("GameTextures/menu_bg.png", Texture.class);
 
 
 
@@ -77,6 +78,7 @@ public class Assets {
         manager.load(CUE_1);
         manager.load(CUE_2);
         manager.load(BALL);
+        manager.load(MENU_BG);
 
         manager.load(MAIN_MUSIC);
 

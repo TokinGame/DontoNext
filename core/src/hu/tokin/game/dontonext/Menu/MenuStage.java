@@ -47,6 +47,14 @@ public class MenuStage extends MyStage {
             //System.out.println(s);
         }
 
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.MENU_BG)){
+            @Override
+            public void init() {
+                super.init();
+                setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+            }
+        });
+
 
         addActor(new MyTextButton("Játék",game.getTextButtonStyle()){
             @Override

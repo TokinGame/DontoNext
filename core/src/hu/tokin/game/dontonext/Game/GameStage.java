@@ -33,8 +33,6 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokin.game.dontonext.MyGdxGame;
 
-import static hu.tokin.game.dontonext.Globals.Globals.pintsz;
-
 /**
  * Created by M on 1/11/2018.
  */
