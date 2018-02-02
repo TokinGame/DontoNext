@@ -40,7 +40,7 @@ import static hu.tokin.game.dontonext.Globals.Globals.pintsz;
 
 public class GameStage extends MyStage {
 
-    //private ControlStage controlStage;
+    private ControlStage controlStage;
 
     World world;
     Box2DDebugRenderer box2DDebugRenderer;
@@ -54,8 +54,8 @@ public class GameStage extends MyStage {
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
-        //controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT, new OrthographicCamera(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT)),new SpriteBatch(), game, this);
-
+        controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT, new OrthographicCamera(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT)),new SpriteBatch(), game, this);
+        setDebugAll(Globals.DEBUG);
         world = new World(new Vector2(0, -20.5f), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
         loader = new WorldBodyEditorLoader(Gdx.files.internal("fizika.json"));
@@ -85,7 +85,7 @@ public class GameStage extends MyStage {
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(this);
-        //inputMultiplexer.addProcessor(controlStage);
+        inputMultiplexer.addProcessor(controlStage);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
         addActor(new Plank(world, 100, 100, 0));
@@ -114,7 +114,7 @@ public class GameStage extends MyStage {
     @Override
     public void draw() {
         super.draw();
-        //controlStage.draw();
+        controlStage.draw();
     }
 
 
@@ -129,13 +129,14 @@ public class GameStage extends MyStage {
         super.act(delta);
         world.step(delta, 10, 10);
         elapsedTime += delta;
+        controlStage.act(delta);
 
         for (WorldActorGroup group: rem) {
             group.removeFromWorld();
             group.removeFromStage();
         }
 
-        box2DDebugRenderer.render(world, getCamera().combined);
+        if(Globals.DEBUG) box2DDebugRenderer.render(world, getCamera().combined);
     }
 
 }

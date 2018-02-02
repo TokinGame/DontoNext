@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import hu.tokin.game.dontonext.GameElements.UI.BlockSelector;
 import hu.tokin.game.dontonext.Globals.Globals;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
@@ -23,10 +24,10 @@ public class ControlStage extends MyStage {
     public ControlStage(Viewport viewport, Batch batch, MyGdxGame game, GameStage gameStage) {
         super(viewport, batch, game);
         this.gameStage = gameStage;
-        for(StackTraceElement s: Thread.currentThread().getStackTrace()){
+        /*for(StackTraceElement s: Thread.currentThread().getStackTrace()){
             System.out.println(s);
-        }
-
+        }*/
+        addActor(new BlockSelector(gameStage));
     }
 
     @Override
