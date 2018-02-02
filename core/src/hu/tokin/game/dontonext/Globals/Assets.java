@@ -43,6 +43,8 @@ public class Assets {
     public static final AssetDescriptor<Texture> BACKGROUND_TABLE = new AssetDescriptor<Texture>("GameTextures/asztal.png", Texture.class);
     public static final AssetDescriptor<Texture> CUE_1 = new AssetDescriptor<Texture>("GameTextures/dako/egyik.png", Texture.class);
     public static final AssetDescriptor<Texture> CUE_2 = new AssetDescriptor<Texture>("GameTextures/dako/masik.png", Texture.class);
+    public static final AssetDescriptor<Texture> TOKIN = new AssetDescriptor<Texture>("OtherTextures/tokin.png", Texture.class);
+    public static final AssetDescriptor<Texture> PEN = new AssetDescriptor<Texture>("OtherTextures/PEN.png", Texture.class);
     public static final AssetDescriptor<Texture> BALL = new AssetDescriptor<Texture>("GameTextures/golyo.png", Texture.class);
 
 
@@ -68,12 +70,17 @@ public class Assets {
         manager.load(EMPTY);
         
         manager.load(BACKGROUND_TABLE);
+        manager.load(MAIN_MUSIC);
+        manager.load(PEN);
+        manager.load(TOKIN);
 
         manager.load(CUE_1);
         manager.load(CUE_2);
         manager.load(BALL);
 
         manager.load(MAIN_MUSIC);
+
+
     }
 
     public static void afterLoaded() {

@@ -70,7 +70,7 @@ public class SettingsStage extends MyStage {
             public void init() {
                 super.init();
                 this.setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 400);
-                addListener(new ClickListener(){
+                /*addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
@@ -81,7 +81,7 @@ public class SettingsStage extends MyStage {
                         Globals.getPrefs().flush();
                         setText(MUSIC_LABEL + (Globals.music ? "Be" : "Ki"));
                     }
-                });
+                });*/
             }
         });
 

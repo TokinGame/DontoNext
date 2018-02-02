@@ -20,11 +20,11 @@ import hu.tokin.game.dontonext.MyGdxGame;
  * Created by zoltan on 2018.02.02..
  */
 
-public class CreditsStage extends MyStage {
+public class CreditsStage2 extends MyStage {
 
     MyGdxGame game;
 
-    public CreditsStage(Viewport viewport, Batch batch, MyGdxGame gam) {
+    public CreditsStage2(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
 
         game = gam;
@@ -56,7 +56,7 @@ public class CreditsStage extends MyStage {
             }
         });
 
-        addActor(new MyLabel("ASDF\nKészítette a Tökin Game\nTagok:\nBálint Dániel\nDávid Mátyás\nKovács Zoltán\nSchuh Marcell", game.getLabelStyle_White()){
+        addActor(new MyLabel("Köszönjük, hogy részt vehettünk idén is a döntőben,\nhatalmas élménnyekkel, és tapasztalattal gazdagodtunk.\n Továbbá óriási nagy köszönet Tüske Balázs Tanárúrnak,\naki rengetek időt áldozott segítésünkre, és felkészítésünkre.\nNélküle semmiképpen nem jutottunk volna el idáig.", game.getLabelStyle_White()){
             @Override
             public void init() {
                 super.init();
@@ -76,12 +76,12 @@ public class CreditsStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        game.setScreen(new MenuScreen(game));
+                        game.setScreen(new CreditsScreen(game));
                     }
                 });
             }
         });
-        addActor(new MyTextButton("Tovább",game.getTextButtonStyle()){
+        addActor(new MyTextButton("Menü",game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
@@ -90,12 +90,11 @@ public class CreditsStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        game.setScreen(new CreditsScreen2(game));
+                        game.setScreen(new MenuScreen(game));
                     }
                 });
             }
         });
-
 
 
 
