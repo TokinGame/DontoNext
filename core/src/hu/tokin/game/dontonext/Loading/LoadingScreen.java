@@ -27,6 +27,7 @@ public class LoadingScreen extends MyScreen {
     public LoadingScreen(MyGdxGame game) {
         super(game);
         setBackGroundColor(0f, 0f, 0f);
+        Globals.music = Globals.getPrefs().getBoolean("music", true);
         stage = new MyStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), spriteBatch, game){
             @Override
             public void init() {
