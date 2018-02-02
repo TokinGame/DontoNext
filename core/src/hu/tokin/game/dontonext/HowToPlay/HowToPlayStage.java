@@ -47,8 +47,7 @@ public class HowToPlayStage extends MyStage {
             }
         });
 
-        addActor(new MyLabel("Játék menete:\nA játék során az ellenség hullámokban fog érkezni,\nhogy elpusztítsák a bázist.\nA feledat ezt megakadályozni falak és ágyúk segítségével\n Az eszköztárban lehet választani, fal és ágyú között,\nmelyeket Űrforintért lehet vásárolni, és lehelyezni a pályára\n Sok Sikert!", game.getLabelStyle_White_DarkBG()){
-            @Override
+        addActor(new MyLabel("A helyi kocsmában lévő billárd asztalt egy balhé közben szétverték a dákóval, nekiállt lejteni, és egy-két oldala hiányzik.\\nÁm a kocsma népét ez sem akadályozza meg kedvenc sportjuk űzésében.\\nA raktárban talált ventillátorok segítségével akarják belöködni a golyókat, mivel a dákót is eltörték.\\n Ám mivel ők elég illuminált állapotban vannak, eme feladat rádhárult.\\nSegíts eljuttatni a golyót a pirossal jelölt lyukba, ventillátorok és törött dákók segítségével.", game.getLabelStyle_White_DarkBG()){
             public void init() {
                 super.init();
                 setPosition(Globals.WORLD_WIDTH/2-getWidth()/2, 200);
