@@ -22,12 +22,15 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
+import hu.tokin.game.dontonext.Exit.ExitScreen;
 import hu.tokin.game.dontonext.GameElements.Bodies.Air;
+import hu.tokin.game.dontonext.GameElements.Bodies.Hole;
 import hu.tokin.game.dontonext.GameElements.Bodies.Plank;
 import hu.tokin.game.dontonext.GameElements.Bodies.PoolBall;
 import hu.tokin.game.dontonext.GameElements.UI.PlaceableActor;
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
+import hu.tokin.game.dontonext.Menu.MenuScreen;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldActorGroup;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyActor;
@@ -62,7 +65,8 @@ public class GameStage extends MyStage {
         super(viewport, batch, game);
         controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT, new OrthographicCamera(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT)),new SpriteBatch(), game, this);
         setDebugAll(Globals.DEBUG);
-        world = new World(new Vector2(0, -20.5f), false);
+        Gdx.input.setCatchBackKey(true);
+        world = new World(new Vector2(0, -10f), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
         loader = new WorldBodyEditorLoader(Gdx.files.internal("fizika.json"));
         world.setContactListener(new ContactListener() {
@@ -150,6 +154,19 @@ public class GameStage extends MyStage {
         addActor(new Air(world, 700, 200, 45));
 
         addBackEventStackListener();
+
+
+        addHoles(2);
+    }
+
+
+    public void addHoles(int which){
+        addActor(new Hole(world, loader, 70, 70, which==0 ? true : false));
+        addActor(new Hole(world, loader, 640, 50, which==1 ? true : false));
+        addActor(new Hole(world, loader, 1280-70, 70, which==2 ? true : false));
+        addActor(new Hole(world, loader, 1280-70, 720-70, which==3 ? true : false));
+        addActor(new Hole(world, loader, 640, 720-50, which==4 ? true : false));
+        addActor(new Hole(world, loader, 70, 720-70, which==5 ? true : false));
     }
 
 
@@ -160,7 +177,7 @@ public class GameStage extends MyStage {
     @Override
     public boolean keyDown(int keycode) {
         if(keycode == Input.Keys.BACK && keycode == Input.Keys.ESCAPE){
-            game.setScreenBackByStackPop();
+            game.setScreen(new MenuScreen(game));
         }
         return false;
     }

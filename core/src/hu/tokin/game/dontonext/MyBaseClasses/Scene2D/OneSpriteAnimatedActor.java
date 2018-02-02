@@ -97,6 +97,22 @@ public class OneSpriteAnimatedActor extends OneSpriteActor {
         sprite.setRegion(textureAtlas.getRegions().get(frame % textureAtlas.getRegions().size));
     }
 
+    public void FramePlus(){
+        actualFrame++;
+        if(actualFrame>textureAtlas.getRegions().size) actualFrame = 0;
+        else if(actualFrame < 0) actualFrame = textureAtlas.getRegions().size-1;
+
+        setFrame(actualFrame);
+    }
+
+    public void FrameMinus(){
+        actualFrame--;
+        if(actualFrame>textureAtlas.getRegions().size) actualFrame = 0;
+        else if(actualFrame < 0) actualFrame = textureAtlas.getRegions().size-1;
+
+        setFrame(actualFrame);
+    }
+
     public void setFramePercent(float percent) {
         setFrame((int)(getFrameCount()*percent));
     }

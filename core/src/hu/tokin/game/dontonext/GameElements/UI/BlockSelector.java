@@ -30,7 +30,7 @@ public class BlockSelector extends Group {
 
     public BlockSelector() {
         super();
-        this.setSize(400,400);
+        this.setSize(600,400);
         this.setPosition(Globals.WORLD_WIDTH - 100, Globals.WORLD_HEIGHT/2f - this.getHeight()/2f);
 
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.TRAY)){
@@ -71,67 +71,81 @@ public class BlockSelector extends Group {
         });
 
         //addActor(b0 = new BlockSelectButton(150, 275, this, 0, Assets.manager.get(Assets.CUE_2)));
-        addActor(b0 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b0 = new BlockSelectButton(5, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
-                this.setRotation((float) Math.toRadians(0));
+                this.setRotation(0);
+
             }
         });
 
-        addActor(b1 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b1 = new BlockSelectButton(105, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
-                this.setRotation((float) Math.toRadians(45));
+
+                this.setRotation(45);
+
             }
         });
 
-        addActor(b2 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b2 = new BlockSelectButton(205, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
-                this.setRotation((float) Math.toRadians(90));
+
+                this.setRotation(90);
+
             }
         });
 
-        addActor(b3 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b3 = new BlockSelectButton(305, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
-                this.setRotation((float) Math.toRadians(135));
+
+                this.setRotation(135);
+
             }
         });
 
-        addActor(b4 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b4 = new BlockSelectButton(405, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
-                this.setRotation((float) Math.toRadians(180));
+
+                this.setRotation(180);
+
             }
         });
 
-        addActor(b5 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.CUE_2)){
+        addActor(b5 = new BlockSelectButton(10, 100, this, 1, Assets.manager.get(Assets.CUE_2)){
             @Override
             public void init() {
                 super.init();
-                this.setRotation((float) Math.toRadians(135));
+
+                this.setRotation(135);
+
             }
         });
 
-        addActor(b6 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.CUE_2)){
+        addActor(b6 = new BlockSelectButton(200, 100, this, 1, Assets.manager.get(Assets.CUE_2)){
             @Override
             public void init() {
                 super.init();
-                this.setRotation((float) Math.toRadians(0));
+
+                this.setRotation(0);
+
             }
         });
 
-        addActor(b7 = new BlockSelectButton(150, 150, this, 1, Assets.manager.get(Assets.CUE_2)){
+        addActor(b7 = new BlockSelectButton(390, 100, this, 1, Assets.manager.get(Assets.CUE_2)){
             @Override
             public void init() {
                 super.init();
-                this.setRotation((float) Math.toRadians(45));
+                this.setRotation(45);
+
             }
         });
 
@@ -140,7 +154,7 @@ public class BlockSelector extends Group {
     private void slideOut(){
         moving = true;
         state = State.OUT;
-        this.addAction(sequence(moveTo(Globals.WORLD_WIDTH - 300, getY(), 0.5f), run(new Runnable() {
+        this.addAction(sequence(moveTo(Globals.WORLD_WIDTH - 500, getY(), 0.5f), run(new Runnable() {
             public void run () {
                 moving = false;
                 BlockSelector.this.removeAction(BlockSelector.this.getActions().first());
