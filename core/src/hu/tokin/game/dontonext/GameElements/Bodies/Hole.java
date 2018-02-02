@@ -21,10 +21,13 @@ public class Hole extends WorldActorGroup {
     boolean isFinish;
     boolean marVolt = false;
     MyGdxGame game;
+
+
     public Hole(MyGdxGame game, World world, WorldBodyEditorLoader loader, float x, float y, boolean finish) {
         super(world, loader, "golyo", BodyDef.BodyType.StaticBody, 0, 0, 0, true);
         this.game = game;
         isFinish = finish;
+        //isFinish = true;
         setSize(1, 1);
         setPosition((float)x/80f, (float)y/80f);
         if(isFinish){

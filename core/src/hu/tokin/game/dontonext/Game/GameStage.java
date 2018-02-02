@@ -64,6 +64,8 @@ public class GameStage extends MyStage {
 
     PoolBall poolBall;
 
+    OneSpriteStaticActor ballplace;
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -152,10 +154,6 @@ public class GameStage extends MyStage {
         });
 
 
-        addActor(new Plank(world, loader, 10, 150, 0));
-
-        addActor(new Air(world, 700, 200, 45));
-
         addBackEventStackListener();
 
 
@@ -174,16 +172,89 @@ public class GameStage extends MyStage {
         });
 
         switch(Globals.level){
-            case 0: addActor(poolBall = new PoolBall(world, loader, 800, 500)); break;
-            case 1: addActor(poolBall = new PoolBall(world, loader, 100, 500)); break;
-            case 2: addActor(poolBall = new PoolBall(world, loader, 1100, 600)); break;
-            case 3: addActor(poolBall = new PoolBall(world, loader, 300, 300)); break;
-            case 4: addActor(poolBall = new PoolBall(world, loader, 800, 500)); break;
-            case 5: addActor(poolBall = new PoolBall(world, loader, 1000, 100)); break;
+            case 0:
+                addActor(ballplace = new OneSpriteStaticActor(Assets.manager.get(Assets.BALL)){
+                    @Override
+                    public void init() {
+                        super.init();
+                        setSize(0.5f, 0.5f);
+                        setPosition(800f/80f, 500f/80f);
+                    }
+                });
+                break;
+            case 1:
+                addActor(ballplace = new OneSpriteStaticActor(Assets.manager.get(Assets.BALL)){
+                    @Override
+                    public void init() {
+                        super.init();
+                        setSize(0.5f, 0.5f);
+                        setPosition(100f/80f, 500f/80f);
+                    }
+                });
+                break;
+            case 2:
+                addActor(ballplace = new OneSpriteStaticActor(Assets.manager.get(Assets.BALL)){
+                    @Override
+                    public void init() {
+                        super.init();
+                        setSize(0.5f, 0.5f);
+                        setPosition(1100f/80f, 600f/80f);
+                    }
+                });
+                break;
+            case 3:
+                addActor(ballplace = new OneSpriteStaticActor(Assets.manager.get(Assets.BALL)){
+                    @Override
+                    public void init() {
+                        super.init();
+                        setSize(0.5f, 0.5f);
+                        setPosition(300f/80f, 300f/80f);
+                    }
+                });
+                break;
+            case 4:
+                addActor(ballplace = new OneSpriteStaticActor(Assets.manager.get(Assets.BALL)){
+                    @Override
+                    public void init() {
+                        super.init();
+                        setSize(0.5f, 0.5f);
+                        setPosition(800f/80f, 500f/80f);
+                    }
+                });
+                break;
+            case 5:
+                addActor(ballplace = new OneSpriteStaticActor(Assets.manager.get(Assets.BALL)){
+                    @Override
+                    public void init() {
+                        super.init();
+                        setSize(0.5f, 0.5f);
+                        setPosition(1000f/80f, 100f/80f);
+                    }
+                });break;
 
         }
+        addActor(ballplace);
 
 
+    }
+
+
+    public void spawn(){
+        switch(Globals.level){
+            case 0:  poolBall = new PoolBall(world, loader, 800, 500);
+                break;
+            case 1: poolBall = new PoolBall(world, loader, 100, 500);
+                break;
+            case 2:poolBall = new PoolBall(world, loader, 1100, 600);
+                break;
+            case 3:poolBall = new PoolBall(world, loader, 300, 300);
+                break;
+            case 4: poolBall = new PoolBall(world, loader, 800, 500);
+                break;
+            case 5: poolBall = new PoolBall(world, loader, 1000, 100);
+                break;
+        }
+        addActor(poolBall);
     }
 
 
@@ -224,6 +295,7 @@ public class GameStage extends MyStage {
 
     public void buildMap(ArrayList<PlaceableActor> blocks){
         for (PlaceableActor plc: blocks) {
+            if(plc == null || plc.getType() == null) break;
             switch (plc.getType()){
                 case AIR: addActor(new Air(world, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation()))); break;
                 case PLANK: addActor(new Plank(world, loader, plc.getX(), plc.getY(), (float) Math.toDegrees(plc.getRotation()))); break;

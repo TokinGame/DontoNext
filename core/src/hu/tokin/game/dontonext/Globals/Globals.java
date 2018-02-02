@@ -12,7 +12,7 @@ import java.util.Collections;
 
 public class Globals {
 
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     public static final int FAN_WIDTH=150;
     public static final int FAN_HEIGHT=   150;
     public static final int PLANK_HEIGHT= 20;
@@ -24,8 +24,8 @@ public class Globals {
 
     public static Selectable selectedBlock = Selectable.CUE;
 
-    public static int level = 0;
-    public static boolean[] unlocked = {true, false, false, false, false, false};
+    public static int level = 1;
+    public static boolean[] unlocked = {true, true, true, true, true, true};
 
 
     public static final Preferences prefs = Gdx.app.getPreferences("main");

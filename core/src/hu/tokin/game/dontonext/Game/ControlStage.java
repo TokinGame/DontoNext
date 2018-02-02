@@ -39,15 +39,17 @@ public class ControlStage extends MyStage {
 
     private BlockSelector blockSelector;
 
+    MyTextButton startbutton, restartButton;
 
-    public ControlStage(Viewport viewport, Batch batch, MyGdxGame game, GameStage gameStage) {
+
+    public ControlStage(Viewport viewport, Batch batch, final MyGdxGame game, GameStage gameStage) {
         super(viewport, batch, game);
         this.gameStage = gameStage;
         setUpDrag();
 
         addActor(blockSelector = new BlockSelector(this));
 
-        addActor(new MyTextButton("Start", game.getTextButtonStyle()){
+        addActor(startbutton = new MyTextButton("Start", game.getTextButtonStyle()){
             @Override
             public void init() {
                 super.init();
@@ -62,6 +64,7 @@ public class ControlStage extends MyStage {
                 });
             }
         });
+
     }
 
     private void setUpDrag(){
@@ -128,6 +131,25 @@ public class ControlStage extends MyStage {
             }
         }
         gameStage.buildMap(plc);
+        gameStage.spawn();
+        gameStage.ballplace.remove();
+        startbutton.setVisible(false);
+        addActor(restartButton = new MyTextButton("Újra", game.getTextButtonStyle()){
+            @Override
+            public void init() {
+                super.init();
+                this.setPosition(Globals.WORLD_WIDTH /2f - getWidth() / 2f+300, Globals.WORLD_HEIGHT - getHeight());
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        game.setScreen(new GameScreen(game), false);
+                        System.out.println("asdklfjklasdj");
+                    }
+                });
+            }
+        });
+
     }
 
 

@@ -23,6 +23,8 @@ public class LoadingScreen extends MyScreen {
     private float elapsedTime = 0;
     private OneSpriteStaticActor backGround;
 
+    OneSpriteAnimatedActor balls;
+
 
     public LoadingScreen(MyGdxGame game) {
         super(game);
@@ -37,12 +39,12 @@ public class LoadingScreen extends MyScreen {
         stage.addActor(backGround= new OneSpriteStaticActor("GameTextures/asztal.png"));
         backGround.setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
         backGround.setPosition(0,0);
-        stage.addActor(new OneSpriteAnimatedActor("loading/loading.txt")
+        stage.addActor(balls = new OneSpriteAnimatedActor("loading/loading.txt")
         {
             @Override
             public void init() {
                 super.init();
-                setFps(30);
+                stop();
                 setSize(300, 300);
                 setPosition(Globals.WORLD_WIDTH/2f-this.getWidth()/2f, Globals.WORLD_HEIGHT/2f-this.getHeight()/2f);
             }
@@ -89,6 +91,7 @@ public class LoadingScreen extends MyScreen {
                 }
             }
         }
+        balls.setFramePercent(Assets.manager.getProgress());
         elapsedTime += delta;
         stage.act(delta);
         stage.draw();
