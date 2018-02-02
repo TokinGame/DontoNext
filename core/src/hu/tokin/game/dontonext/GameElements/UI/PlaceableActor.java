@@ -24,11 +24,12 @@ public class PlaceableActor extends OneSpriteStaticActor {
         return pressed;
     }
 
-    public PlaceableActor(Type type, ControlStage controlStage) {
+    public PlaceableActor(Type type, ControlStage controlStage, float rotation) {
         super(Assets.manager.get(type == Type.PLANK ? Assets.CUE_2 : Assets.FAN_STATIONARY));
         this.type = type;
         this.controlStage = controlStage;
         this.setSize(type == Type.PLANK ? 300 : 150, type == Type.PLANK ? 20 : 150);
+        this.setRotation(rotation);
         addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {

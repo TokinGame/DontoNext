@@ -13,8 +13,11 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 public class BlockSelectButton extends OneSpriteStaticActor {
     BlockSelector blockSelector;
     private final int id;
-    public BlockSelectButton(float x, float y, BlockSelector bs, int i, Texture texture) {
+    private PlaceableActor.Type type;
+
+    public BlockSelectButton(float x, float y, BlockSelector bs, int i, Texture texture, final PlaceableActor.Type type) {
         super(texture);
+        this.type = type;
         blockSelector = bs;
         setPosition(x, y);
         setSize(100, 100);
@@ -23,7 +26,7 @@ public class BlockSelectButton extends OneSpriteStaticActor {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                blockSelector.selected(id);
+                blockSelector.selected(type, getRotation());
             }
         });
     }

@@ -30,9 +30,14 @@ public class ControlStage extends MyStage {
 
     OneSpriteStaticActor actor;
 
-    private boolean pressed;
+    private boolean dragging = false;
+
+    private float selectedRotation = 0;
+    private PlaceableActor.Type type;
 
     private float difX = 0, difY = 0;
+
+    private BlockSelector blockSelector;
 
 
     public ControlStage(Viewport viewport, Batch batch, MyGdxGame game, GameStage gameStage) {
@@ -40,10 +45,7 @@ public class ControlStage extends MyStage {
         this.gameStage = gameStage;
         setUpDrag();
 
-        addActor(new BlockSelector());
-
-        addActor(new PlaceableActor(PlaceableActor.Type.PLANK, this));
-        addActor(new PlaceableActor(PlaceableActor.Type.AIR, this));
+        addActor(blockSelector = new BlockSelector(this));
 
         addActor(new MyTextButton("Start", game.getTextButtonStyle()){
             @Override
@@ -71,9 +73,14 @@ public class ControlStage extends MyStage {
                         if(((PlaceableActor) placable).isPressed()){
                             difX = x - placable.getX();
                             difY = y - placable.getY();
+                            dragging = true;
                         }
                     }
                 }
+                if(!dragging && x < Globals.WORLD_WIDTH - 105 && blockSelector.getState() == BlockSelector.State.IN){
+                    build(x,y);
+                }
+                dragging = false;
                 return true;
             }
 
@@ -97,6 +104,16 @@ public class ControlStage extends MyStage {
     }
 
 
+    public void build(final float x, final float y){
+        addActor(new PlaceableActor(type, this, selectedRotation){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(x, y);
+            }
+        });
+    }
+
 
     public void start(){
         ArrayList<PlaceableActor> plc = new ArrayList<PlaceableActor>();
@@ -108,6 +125,18 @@ public class ControlStage extends MyStage {
         gameStage.buildMap(plc);
     }
 
+
+    public void setDragging(boolean dragging) {
+        this.dragging = dragging;
+    }
+
+    public void setSelectedRotation(float selectedRotation) {
+        this.selectedRotation = selectedRotation;
+    }
+
+    public void setType(PlaceableActor.Type type) {
+        this.type = type;
+    }
 
     @Override
     public void init() {

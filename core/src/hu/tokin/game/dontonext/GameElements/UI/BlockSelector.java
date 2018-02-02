@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
+import hu.tokin.game.dontonext.Game.ControlStage;
 import hu.tokin.game.dontonext.Game.GameStage;
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
@@ -24,15 +25,16 @@ public class BlockSelector extends Group {
 
     private BlockSelectButton b0, b1, b2, b3, b4, b5, b6, b7;
 
+    private ControlStage controlStage;
 
     OneSpriteStaticActor nyil;
 
 
-    public BlockSelector() {
+    public BlockSelector(final ControlStage controlStage) {
         super();
         this.setSize(600,400);
         this.setPosition(Globals.WORLD_WIDTH - 100, Globals.WORLD_HEIGHT/2f - this.getHeight()/2f);
-
+        this.controlStage = controlStage;
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.TRAY)){
             @Override
             public void init() {
@@ -57,6 +59,7 @@ public class BlockSelector extends Group {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                controlStage.setDragging(true);
                 if(!moving){
                     switch (state){
                         case IN:
@@ -67,11 +70,12 @@ public class BlockSelector extends Group {
                             break;
                     }
                 }
+                controlStage.setDragging(false);
             }
         });
 
         //addActor(b0 = new BlockSelectButton(150, 275, this, 0, Assets.manager.get(Assets.CUE_2)));
-        addActor(b0 = new BlockSelectButton(5, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b0 = new BlockSelectButton(5, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY), PlaceableActor.Type.AIR){
             @Override
             public void init() {
                 super.init();
@@ -80,7 +84,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b1 = new BlockSelectButton(105, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b1 = new BlockSelectButton(105, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY), PlaceableActor.Type.AIR){
             @Override
             public void init() {
                 super.init();
@@ -90,7 +94,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b2 = new BlockSelectButton(205, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b2 = new BlockSelectButton(205, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY), PlaceableActor.Type.AIR){
             @Override
             public void init() {
                 super.init();
@@ -100,7 +104,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b3 = new BlockSelectButton(305, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b3 = new BlockSelectButton(305, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY), PlaceableActor.Type.AIR){
             @Override
             public void init() {
                 super.init();
@@ -110,7 +114,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b4 = new BlockSelectButton(405, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b4 = new BlockSelectButton(405, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY), PlaceableActor.Type.AIR){
             @Override
             public void init() {
                 super.init();
@@ -120,17 +124,16 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b5 = new BlockSelectButton(10, 100, this, 1, Assets.manager.get(Assets.CUE_2)){
+        addActor(b5 = new BlockSelectButton(10, 100, this, 1, Assets.manager.get(Assets.CUE_2), PlaceableActor.Type.PLANK){
             @Override
             public void init() {
                 super.init();
-
                 this.setRotation(135);
 
             }
         });
 
-        addActor(b6 = new BlockSelectButton(200, 100, this, 1, Assets.manager.get(Assets.CUE_2)){
+        addActor(b6 = new BlockSelectButton(200, 100, this, 1, Assets.manager.get(Assets.CUE_2), PlaceableActor.Type.PLANK){
             @Override
             public void init() {
                 super.init();
@@ -140,7 +143,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b7 = new BlockSelectButton(390, 100, this, 1, Assets.manager.get(Assets.CUE_2)){
+        addActor(b7 = new BlockSelectButton(390, 100, this, 1, Assets.manager.get(Assets.CUE_2), PlaceableActor.Type.PLANK){
             @Override
             public void init() {
                 super.init();
@@ -173,30 +176,23 @@ public class BlockSelector extends Group {
         })));
     }
 
-    public void selected(int id){
 
-        switch(id){
-            case 0:
-                Globals.selectedBlock = Globals.Selectable.CUE;
-                nyil.setPosition(40, 295);
-                break;
-            case 1:
-                Globals.selectedBlock = Globals.Selectable.FAN;
-                nyil.setPosition(40, 170);
-                break;
-            case 2:
-                //Globals.selectedBlock = Globals.Selectable.OTHERTURRET;
-                nyil.setPosition(275, 45);
-                break;
 
-        }
-        System.out.println(Globals.selectedBlock);
+    public void selected(PlaceableActor.Type type, float rotation){
+        controlStage.setSelectedRotation(rotation);
+        controlStage.setType(type);
     }
 
 
+    public void setDragging(boolean asdf){
+        controlStage.setDragging(asdf);
+    }
 
+    public State getState() {
+        return state;
+    }
 
-    private enum State{
+    public enum State{
         IN,OUT
     }
 
