@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
+import hu.tokin.game.dontonext.GameElements.Bodies.Fan;
 import hu.tokin.game.dontonext.GameElements.Bodies.Plank;
 import hu.tokin.game.dontonext.GameElements.Bodies.PoolBall;
 import hu.tokin.game.dontonext.Globals.Assets;
@@ -88,8 +89,10 @@ public class GameStage extends MyStage {
         inputMultiplexer.addProcessor(controlStage);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
-        addActor(new Plank(world, loader, 150, 150, 45));
+        addActor(new Plank(world, loader, 150, 150, 0));
         addActor(new PoolBall(world, loader, 100, 300));
+
+        addActor(new Fan(this, world, loader, 300, 50, 90));
 
         addBackEventStackListener();
     }
