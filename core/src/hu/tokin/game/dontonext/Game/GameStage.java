@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
@@ -32,6 +33,7 @@ import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
 import hu.tokin.game.dontonext.MyGdxGame;
 
 /**
@@ -104,11 +106,48 @@ public class GameStage extends MyStage {
             }
         });
 
+        addActor(new WorldActorGroup(world, ShapeType.Rectangle, BodyDef.BodyType.StaticBody,  1, 0.2f, 5, false){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(15.75f, 4.5f);
+                setSize(0.5f, 8);
+                addToWorld();
+            }
+        });
+        addActor(new WorldActorGroup(world, ShapeType.Rectangle, BodyDef.BodyType.StaticBody,  1, 0.2f, 5, false){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(8, 8.75f);
+                setSize(15, 0.5f);
+                addToWorld();
+            }
+        });
+        addActor(new WorldActorGroup(world, ShapeType.Rectangle, BodyDef.BodyType.StaticBody,  1, 0.2f, 5, false){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(8, 0.25f);
+                setSize(15, 0.5f);
+                addToWorld();
+            }
+        });
+        addActor(new WorldActorGroup(world, ShapeType.Rectangle, BodyDef.BodyType.StaticBody, 1, 0.2f, 5, false){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(0.25f, 4.5f);
+                setSize(0.5f, 8);
+                addToWorld();
+            }
+        });
+
 
         addActor(new Plank(world, loader, 10, 150, 0));
-        addActor(poolBall = new PoolBall(world, loader, 100, 300));
+        addActor(poolBall = new PoolBall(world, loader, 800, 500));
 
-        addActor(new Air(world, 400, 200, 45));
+        addActor(new Air(world, 700, 200, 45));
 
         addBackEventStackListener();
     }
@@ -166,7 +205,7 @@ public class GameStage extends MyStage {
             group.removeFromStage();
         }
 
-        if(Globals.DEBUG) box2DDebugRenderer.render(world, getCamera().combined);
+        if(Globals.DEBUG)box2DDebugRenderer.render(world, getCamera().combined);
     }
 
 }
