@@ -31,4 +31,9 @@ public class PoolBall extends WorldActorGroup {
         setSize((float)40/80, (float)40/80);
         addToWorld();
     }
+
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+    }
 }
