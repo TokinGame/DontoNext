@@ -19,6 +19,7 @@ import hu.tokin.game.dontonext.Globals.Globals;
 
 import hu.tokin.game.dontonext.HowToPlay.HowToPlayScreen;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
+import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokin.game.dontonext.MyBaseClasses.UI.MyTextButton;
 import hu.tokin.game.dontonext.MyGdxGame;
@@ -34,6 +35,8 @@ public class MenuStage extends MyStage {
     MyGdxGame game;
     int selected=0;
     OneSpriteStaticActor Hajo;
+
+    OneSpriteAnimatedActor porog;
 
 
     public MenuStage(Viewport viewport, Batch batch, MyGdxGame gam) {
@@ -52,6 +55,16 @@ public class MenuStage extends MyStage {
             public void init() {
                 super.init();
                 setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+            }
+        });
+
+        addActor(porog = new OneSpriteAnimatedActor("GameTextures/ventilator/venti.txt"){
+            @Override
+            public void init() {
+                super.init();
+                setSize(150, 150);
+                setOrigin(0, 0);
+                setPosition(20, 20);
             }
         });
 
