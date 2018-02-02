@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.World;
 
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldActorGroup;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
+import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
 
 /**
@@ -14,6 +15,14 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
 public class Air extends WorldActorGroup {
     public Air(World world, WorldBodyEditorLoader loader, float x, float y, float rotation){
         super(world, loader, "ures", BodyDef.BodyType.StaticBody, 0, 0, 0, true);
+        addActor(new OneSpriteAnimatedActor("GameTextures/szel/szel.txt"){
+            @Override
+            public void init() {
+                super.init();
+                setSize(400f/80f, 150f/80f);
+                setFps(10);
+            }
+        });
         setSize(400f/80f, 150f/80f);
         setPosition(x+150f/80f, y-150f/80f);
         setPosition(x, y);

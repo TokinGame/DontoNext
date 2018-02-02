@@ -81,12 +81,23 @@ public class GameStage extends MyStage {
             }
         });
 
+
+
         rem = new ArrayList<WorldActorGroup>();
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(this);
         inputMultiplexer.addProcessor(controlStage);
         Gdx.input.setInputProcessor(inputMultiplexer);
+
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TABLE)){
+            @Override
+            public void init() {
+                super.init();
+                setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+            }
+        });
+
 
         addActor(new Plank(world, loader, 150, 150, 0));
         addActor(new PoolBall(world, loader, 100, 300));
