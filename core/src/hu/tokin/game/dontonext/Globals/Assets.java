@@ -37,6 +37,9 @@ public class Assets {
 
     public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE = new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
     public static final AssetDescriptor<Texture> EMPTY = new AssetDescriptor<Texture>("OtherTextures/zolipls.png", Texture.class);
+    public static final AssetDescriptor<Texture> BACKGROUND_TABLE = new AssetDescriptor<Texture>("GameTextures/asztal.png", Texture.class);
+    public static final AssetDescriptor<Texture> CUE_1 = new AssetDescriptor<Texture>("GameTextures/dako/egyik.png", Texture.class);
+    public static final AssetDescriptor<Texture> CUE_2 = new AssetDescriptor<Texture>("GameTextures/dako/masik.png", Texture.class);
 
 
 
@@ -56,6 +59,11 @@ public class Assets {
         manager.setLoader(BitmapFont.class, ".otf", new FreetypeFontLoader(resolver));
         manager.load(BADLOGIC_TEXTURE);
         manager.load(CALIBRI_FONT);
+
+        manager.load(BACKGROUND_TABLE);
+
+        manager.load(CUE_1);
+        manager.load(CUE_2);
 
     }
 
