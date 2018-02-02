@@ -16,8 +16,6 @@ import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.ShapeType;
 
 public class Plank extends WorldActorGroup {
 
-    private boolean pressed = false;
-
     public Plank(World world, WorldBodyEditorLoader loader, final float x, final float y, final float angle) {
         super(world, loader, "masik.png", BodyDef.BodyType.StaticBody, 0, 0.2f, 5, false);
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.CUE_2)){
