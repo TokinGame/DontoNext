@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import java.util.ArrayList;
 
 import hu.tokin.game.dontonext.GameElements.Bodies.Air;
+import hu.tokin.game.dontonext.GameElements.Bodies.Hole;
 import hu.tokin.game.dontonext.GameElements.Bodies.Plank;
 import hu.tokin.game.dontonext.GameElements.Bodies.PoolBall;
 import hu.tokin.game.dontonext.GameElements.UI.PlaceableActor;
@@ -150,6 +151,19 @@ public class GameStage extends MyStage {
         addActor(new Air(world, 700, 200, 45));
 
         addBackEventStackListener();
+
+
+        addHoles(2);
+    }
+
+
+    public void addHoles(int which){
+        addActor(new Hole(world, loader, 70, 70, which==0 ? true : false));
+        addActor(new Hole(world, loader, 640, 50, which==1 ? true : false));
+        addActor(new Hole(world, loader, 1280-70, 70, which==2 ? true : false));
+        addActor(new Hole(world, loader, 1280-70, 720-70, which==3 ? true : false));
+        addActor(new Hole(world, loader, 640, 720-50, which==4 ? true : false));
+        addActor(new Hole(world, loader, 70, 720-70, which==5 ? true : false));
     }
 
 

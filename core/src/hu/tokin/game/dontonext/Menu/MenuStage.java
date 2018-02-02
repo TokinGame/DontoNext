@@ -68,6 +68,7 @@ public class MenuStage extends MyStage {
                 setOrigin(0, 0);
                 setPosition(170, 90);
                 setRotation(30);
+                setFps(10);
             }
         });
 
@@ -79,6 +80,7 @@ public class MenuStage extends MyStage {
                 setOrigin(0, 0);
                 setPosition(50, 20);
                 setRotation(30);
+                setFps(20);
             }
         });
 
@@ -90,6 +92,7 @@ public class MenuStage extends MyStage {
                 setOrigin(0, 0);
                 setPosition(Globals.WORLD_WIDTH+37-this.getWidth()+37, 190);
                 setRotation(120);
+                setFps(10);
             }
         });
 
@@ -101,6 +104,7 @@ public class MenuStage extends MyStage {
                 setOrigin(0, 0);
                 setPosition(Globals.WORLD_WIDTH+70-this.getWidth()+70, 80);
                 setRotation(120);
+                setFps(20);
             }
         });
 
@@ -130,7 +134,7 @@ public class MenuStage extends MyStage {
                 super.act(delta);
 
                 setPosition((((Globals.WORLD_WIDTH/2 - this.getWidth()/2))), maxHeight);
-                setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
+                setY((float) (1000-(Math.sin(elapsedTime+0.13f * 1.2f) * maxHeight / 8 + maxHeight)));
             }
         });
 
@@ -190,7 +194,7 @@ public class MenuStage extends MyStage {
                 super.act(delta);
 
 
-                setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
+                setY((float) (1000-(Math.sin(elapsedTime+0.11f * 1.2f) * maxHeight / 8 + maxHeight)));
             }
         });
 
@@ -248,7 +252,7 @@ public class MenuStage extends MyStage {
                 super.act(delta);
 
 
-                setY((float) (1000-(Math.sin(elapsedTime * 1.2f) * maxHeight / 8 + maxHeight)));
+                setY((float) (1000-(Math.sin(elapsedTime+0.12f * 1.2f) * maxHeight / 8 + maxHeight)));
             }
         });
 
