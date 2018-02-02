@@ -22,6 +22,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
+import hu.tokin.game.dontonext.Exit.ExitScreen;
 import hu.tokin.game.dontonext.GameElements.Bodies.Air;
 import hu.tokin.game.dontonext.GameElements.Bodies.Hole;
 import hu.tokin.game.dontonext.GameElements.Bodies.Plank;
@@ -29,6 +30,7 @@ import hu.tokin.game.dontonext.GameElements.Bodies.PoolBall;
 import hu.tokin.game.dontonext.GameElements.UI.PlaceableActor;
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
+import hu.tokin.game.dontonext.Menu.MenuScreen;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldActorGroup;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyActor;
@@ -63,6 +65,7 @@ public class GameStage extends MyStage {
         super(viewport, batch, game);
         controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT, new OrthographicCamera(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT)),new SpriteBatch(), game, this);
         setDebugAll(Globals.DEBUG);
+        Gdx.input.setCatchBackKey(true);
         world = new World(new Vector2(0, -10f), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
         loader = new WorldBodyEditorLoader(Gdx.files.internal("fizika.json"));
@@ -174,7 +177,7 @@ public class GameStage extends MyStage {
     @Override
     public boolean keyDown(int keycode) {
         if(keycode == Input.Keys.BACK && keycode == Input.Keys.ESCAPE){
-            game.setScreenBackByStackPop();
+            game.setScreen(new MenuScreen(game));
         }
         return false;
     }

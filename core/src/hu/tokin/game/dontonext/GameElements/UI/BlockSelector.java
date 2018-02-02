@@ -71,7 +71,7 @@ public class BlockSelector extends Group {
         });
 
         //addActor(b0 = new BlockSelectButton(150, 275, this, 0, Assets.manager.get(Assets.CUE_2)));
-        addActor(b0 = new BlockSelectButton(10, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b0 = new BlockSelectButton(5, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
@@ -90,7 +90,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b2 = new BlockSelectButton(200, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b2 = new BlockSelectButton(205, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
@@ -100,7 +100,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b3 = new BlockSelectButton(295, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b3 = new BlockSelectButton(305, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
@@ -110,7 +110,7 @@ public class BlockSelector extends Group {
             }
         });
 
-        addActor(b4 = new BlockSelectButton(390, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
+        addActor(b4 = new BlockSelectButton(405, 250, this, 1, Assets.manager.get(Assets.FAN_STATIONARY)){
             @Override
             public void init() {
                 super.init();
