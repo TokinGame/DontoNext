@@ -122,6 +122,11 @@ public class ControlStage extends MyStage {
                 plc.add((PlaceableActor) placable);
             }
         }
+        for (Actor placable: getActors()) {
+            if(placable instanceof PlaceableActor){
+                placable.remove();
+            }
+        }
         gameStage.buildMap(plc);
     }
 
