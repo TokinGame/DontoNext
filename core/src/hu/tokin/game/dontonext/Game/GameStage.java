@@ -25,6 +25,7 @@ import hu.tokin.game.dontonext.GameElements.Bodies.Plank;
 import hu.tokin.game.dontonext.GameElements.Bodies.PoolBall;
 import hu.tokin.game.dontonext.Globals.Assets;
 import hu.tokin.game.dontonext.Globals.Globals;
+import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldActorGroup;
 import hu.tokin.game.dontonext.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyActor;
 import hu.tokin.game.dontonext.MyBaseClasses.Scene2D.MyStage;
@@ -45,6 +46,8 @@ public class GameStage extends MyStage {
     Box2DDebugRenderer box2DDebugRenderer;
     WorldBodyEditorLoader loader;
 
+    ArrayList<WorldActorGroup> rem;
+
     int rdm(int a, int b){return (int)(Math.random()*(b-a+1)+a);}
     float randomF(float a, float b){return (float) (Math.random()*(b-a+1)+a);}
 
@@ -52,7 +55,7 @@ public class GameStage extends MyStage {
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
         //controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT, new OrthographicCamera(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT)),new SpriteBatch(), game, this);
-
+        rem = new ArrayList<WorldActorGroup>();
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(this);
@@ -119,11 +122,22 @@ public class GameStage extends MyStage {
 
 
 
+    public void removeBody(WorldActorGroup group){
+        rem.add(group);
+    }
+
+
     @Override
     public void act(float delta) {
         super.act(delta);
         world.step(delta, 10, 10);
         elapsedTime += delta;
+
+        for (WorldActorGroup group: rem) {
+            group.removeFromWorld();
+            group.removeFromStage();
+        }
+
         box2DDebugRenderer.render(world, getCamera().combined);
     }
 
