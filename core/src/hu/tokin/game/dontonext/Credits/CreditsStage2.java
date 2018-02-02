@@ -64,7 +64,7 @@ public class CreditsStage2 extends MyStage {
             }
         });
 
-        addActor(new MyLabel("Köszönjük, hogy részt vehettünk idén is a döntőben,\nhatalmas élménnyekkel, és tapasztalattal gazdagodtunk.\n Továbbá óriási nagy köszönet Tüske Balázs Tanárúrnak,\naki rengetek időt áldozott segítésünkre, és felkészítésünkre.\nNélküle semmiképpen nem jutottunk volna el idáig.", game.getLabelStyle_White()){
+        addActor(new MyLabel("Köszönjük, hogy részt vehettünk idén is a döntőben,\nhatalmas élménnyekkel, és tapasztalattal gazdagodtunk.\n Továbbá óriási nagy köszönet Tüske Balázs Tanárúrnak,\naki rengeteg időt áldozott segítésünkre, és felkészítésünkre.\nNélküle semmiképpen nem jutottunk volna el idáig.", game.getLabelStyle_White()){
             @Override
             public void init() {
                 super.init();
